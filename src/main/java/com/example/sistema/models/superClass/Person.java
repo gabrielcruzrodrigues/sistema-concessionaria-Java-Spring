@@ -12,10 +12,10 @@ import lombok.NoArgsConstructor;
 import java.util.Date;
 
 @MappedSuperclass
-@Data
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode
+@Data
 public class Person {
 
     public interface CreatePerson{}

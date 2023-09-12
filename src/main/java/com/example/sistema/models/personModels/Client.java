@@ -15,10 +15,10 @@ import java.util.Date;
 
 @Entity
 @Table(name = "TB_CLIENTS")
-@Data
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode
+@Data
 public class Client extends Person {
 
     public interface CreatePerson{}
