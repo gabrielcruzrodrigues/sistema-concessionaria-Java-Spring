@@ -1,4 +1,4 @@
-package com.example.sistema.models;
+package com.example.sistema.models.superClass;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
@@ -66,4 +66,9 @@ public class Person {
     @NotBlank(groups = CreatePerson.class)
     @Size(groups = CreatePerson.class, min = 2, max = 30)
     private String nationality;
+
+    @Column(name = "isActive", nullable = false)
+    @NotNull(groups = CreatePerson.class)
+    @NotBlank(groups = CreatePerson.class)
+    private Boolean isActive;
 }

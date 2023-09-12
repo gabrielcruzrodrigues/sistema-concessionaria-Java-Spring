@@ -1,5 +1,6 @@
-package com.example.sistema.models;
+package com.example.sistema.models.personModels;
 
+import com.example.sistema.models.superClass.Person;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
@@ -13,35 +14,38 @@ import lombok.NoArgsConstructor;
 import java.util.Date;
 
 @Entity
-@Table(name = "TB_CLIENT")
+@Table(name = "TB_CLIENTS")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode
-public class Client extends Person{
+public class Client extends Person {
+
+    public interface CreatePerson{}
+    public interface UpdatePerson{}
 
     @Column(name = "isActive", nullable = false)
-    @NotNull
-    @NotBlank
+    @NotNull(groups = CreatePerson.class)
+    @NotBlank(groups = CreatePerson.class)
     private Boolean isActive;
 
     @Column(name = "lastPurchase", nullable = false)
-    @NotNull
-    @NotBlank
+    @NotNull(groups = CreatePerson.class)
+    @NotBlank(groups = CreatePerson.class)
     private Date lastPurchase;
 
     @Column(name = "creditCompany",length = 20, nullable = false)
-    @NotNull
-    @NotBlank
+    @NotNull(groups = CreatePerson.class)
+    @NotBlank(groups = CreatePerson.class)
     private Double creditCompany;
 
     @Column(name = "monthlySalary",length = 20, nullable = false)
-    @NotNull
-    @NotBlank
+    @NotNull(groups = CreatePerson.class)
+    @NotBlank(groups = CreatePerson.class)
     private Double monthlySalary;
 
     @Column(name = "approvedFinancing", nullable = false)
-    @NotNull
-    @NotBlank
+    @NotNull(groups = CreatePerson.class)
+    @NotBlank(groups = CreatePerson.class)
     private Boolean approvedFinancing;
 }
