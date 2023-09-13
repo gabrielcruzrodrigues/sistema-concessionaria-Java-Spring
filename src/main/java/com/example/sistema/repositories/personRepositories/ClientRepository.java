@@ -13,5 +13,5 @@ import java.util.Optional;
 public interface ClientRepository extends JpaRepository<Client, Long> {
 
     @Query(value = "SELECT * FROM tb_clients WHERE cpf = :cpf", nativeQuery = true)
-    Optional<Client> findByClientCpf(@Param("cpf") String cpf);
+    Client findByClientCpf(@Param("cpf") String cpf);
 }
