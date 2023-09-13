@@ -24,36 +24,29 @@ public class Car extends Vehicle {
 
     @Column(name = "electricWindows", nullable = false)
     @NotNull(groups = CreateCar.class)
-    @NotBlank(groups = CreateCar.class)
     private Boolean electricWindows;
 
     @Column(name = "automaticTransmission", nullable = false)
     @NotNull(groups = CreateCar.class)
-    @NotBlank(groups = CreateCar.class)
     private Boolean automaticTransmission;
 
     @Column(name = "traction", nullable = false)
     @NotNull(groups = CreateCar.class)
-    @NotBlank(groups = CreateCar.class)
     private Boolean traction;
 
     @Column(name = "hydraulicSteering", nullable = false)
     @NotNull(groups = CreateCar.class)
-    @NotBlank(groups = CreateCar.class)
     private Boolean hydraulicSteering;
 
     @Column(name = "gps", nullable = false)
     @NotNull(groups = CreateCar.class)
-    @NotBlank(groups = CreateCar.class)
     private Boolean gps;
 
     @Column(name = "sunroof", nullable = false)
     @NotNull(groups = CreateCar.class)
-    @NotBlank(groups = CreateCar.class)
     private Boolean sunroof;
 
     @Column(name = "sensorsAndCameras", nullable = false)
     @NotNull(groups = CreateCar.class)
-    @NotBlank(groups = CreateCar.class)
     private Boolean sensorsAndCameras;
 }
