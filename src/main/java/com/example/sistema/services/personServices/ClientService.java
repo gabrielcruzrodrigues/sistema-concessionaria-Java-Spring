@@ -54,10 +54,10 @@ public class ClientService {
         this.clientRepository.save(newClient);
     }
 
-    public void delete(Client client) {
-        findById(client.getId());
+    public void delete(Long id) {
+        findById(id);
         try {
-            clientRepository.delete(client);
+            clientRepository.deleteById(id);
         } catch(Exception ex) {
             throw new DataBidingViolationException("Não a possivel excluir pois há entidades relacionadas");
         }
