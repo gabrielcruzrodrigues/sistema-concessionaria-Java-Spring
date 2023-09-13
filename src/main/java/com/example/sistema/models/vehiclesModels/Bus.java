@@ -24,51 +24,41 @@ public class Bus extends Vehicle {
 
     @Column(name = "electricWindows", nullable = false)
     @NotNull(groups = CreateBus.class)
-    @NotBlank(groups = CreateBus.class)
     private Boolean electricWindows;
 
     @Column(name = "automaticTransmission", nullable = false)
     @NotNull(groups = CreateBus.class)
-    @NotBlank(groups = CreateBus.class)
     private Boolean automaticTransmission;
 
     @Column(name = "traction", nullable = false)
     @NotNull(groups = CreateBus.class)
-    @NotBlank(groups = CreateBus.class)
     private Boolean traction;
 
     @Column(name = "hydraulicSteering", nullable = false)
     @NotNull(groups = CreateBus.class)
-    @NotBlank(groups = CreateBus.class)
     private Boolean hydraulicSteering;
 
     @Column(name = "gps", nullable = false)
     @NotNull(groups = CreateBus.class)
-    @NotBlank(groups = CreateBus.class)
     private Boolean gps;
 
     @Column(name = "sunroof", nullable = false)
     @NotNull(groups = CreateBus.class)
-    @NotBlank(groups = CreateBus.class)
     private Boolean sunroof;
 
     @Column(name = "sensorsAndCameras", nullable = false)
     @NotNull(groups = CreateBus.class)
-    @NotBlank(groups = CreateBus.class)
     private Boolean sensorsAndCameras;
 
     @Column(name = "airConditioning", nullable = false)
     @NotNull(groups = CreateBus.class)
-    @NotBlank(groups = CreateBus.class)
     private Boolean airConditioning;
 
     @Column(name = "cameraMonitoring", nullable = false)
     @NotNull(groups = CreateBus.class)
-    @NotBlank(groups = CreateBus.class)
     private Boolean cameraMonitoring;
 
     @Column(name = "Lighting", nullable = false)
     @NotNull(groups = CreateBus.class)
-    @NotBlank(groups = CreateBus.class)
     private Boolean Lighting;
 }

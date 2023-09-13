@@ -26,7 +26,7 @@ public class Vehicle {
     @Column(name = "id", unique = true)
     private Long id;
 
-    @Column(name = "plate", length = 7, nullable = false)
+    @Column(name = "plate", length = 7, nullable = false, unique = true)
     @NotNull(groups = CreateVehicle.class)
     @NotBlank(groups = CreateVehicle.class)
     @Size(groups = CreateVehicle.class, min = 7, max = 7)
@@ -38,10 +38,16 @@ public class Vehicle {
     @Size(groups = CreateVehicle.class, min = 3, max = 20)
     private String color;
 
-    @Column(name = "manufacturingDate", nullable = false)
+    @Column(name = "chassi", length = 17, nullable = false, unique = true)
     @NotNull(groups = CreateVehicle.class)
     @NotBlank(groups = CreateVehicle.class)
-    private Date manufacturingDate;
+    @Size(groups = CreateVehicle.class, min = 3, max = 17)
+    private String chassi;
+
+//    @Column(name = "manufacturingDate", nullable = false)
+//    @NotNull(groups = CreateVehicle.class)
+//    @NotBlank(groups = CreateVehicle.class)
+//    private Date manufacturingDate;
 
     @Column(name = "model", length = 30, nullable = false)
     @NotNull(groups = CreateVehicle.class)
@@ -85,4 +91,7 @@ public class Vehicle {
     @NotNull(groups = CreateVehicle.class)
     @NotBlank(groups = CreateVehicle.class)
     private Double torque;
+
+    @Column(name = "isAvailable", nullable = false)
+    private Boolean isAvailable;
 }
