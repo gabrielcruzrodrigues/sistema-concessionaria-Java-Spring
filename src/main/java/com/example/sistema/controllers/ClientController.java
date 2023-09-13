@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
+import java.util.List;
 
 @RestController
 @RequestMapping("/client")
@@ -32,6 +33,12 @@ public class ClientController {
                 .toUri();
 
         return ResponseEntity.created(uri).body(client);
+    }
+
+    @GetMapping
+    public ResponseEntity<List<Client>> findAll() {
+        List<Client> clients = clientService.findAllClients();
+        return ResponseEntity.status(HttpStatus.OK).body(clients);
     }
 
     @GetMapping("/{id}")

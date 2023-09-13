@@ -8,7 +8,9 @@ import jakarta.transaction.Transactional;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.GetMapping;
 
+import java.util.List;
 import java.util.Optional;
 
 @Slf4j
@@ -22,6 +24,10 @@ public class ClientService {
     public Client create(Client clientObj) {
         clientObj.setId(null);
         return clientRepository.save(clientObj);
+    }
+
+    public List<Client> findAllClients() {
+        return clientRepository.findAll();
     }
 
     public Client findByClientCpf(String cpf) {
