@@ -26,26 +26,22 @@ public class Client extends Person {
 
     @Column(name = "isActive", nullable = false)
     @NotNull(groups = CreatePerson.class)
-    @NotBlank(groups = CreatePerson.class)
     private Boolean isActive;
 
-    @Column(name = "lastPurchase", nullable = false)
-    @NotNull(groups = CreatePerson.class)
-    @NotBlank(groups = CreatePerson.class)
-    private Date lastPurchase;
+//    @Column(name = "lastPurchase", nullable = false)
+//    @NotNull(groups = CreatePerson.class)
+//    @NotBlank(groups = CreatePerson.class)
+//    private Date lastPurchase;
 
     @Column(name = "creditCompany",length = 20, nullable = false)
     @NotNull(groups = CreatePerson.class)
-    @NotBlank(groups = CreatePerson.class)
     private Double creditCompany;
 
     @Column(name = "monthlySalary",length = 20, nullable = false)
     @NotNull(groups = CreatePerson.class)
-    @NotBlank(groups = CreatePerson.class)
     private Double monthlySalary;
 
     @Column(name = "approvedFinancing", nullable = false)
     @NotNull(groups = CreatePerson.class)
-    @NotBlank(groups = CreatePerson.class)
     private Boolean approvedFinancing;
 }

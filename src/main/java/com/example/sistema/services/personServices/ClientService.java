@@ -46,7 +46,7 @@ public class ClientService {
         //data not changed
         newClient.setId(clientObj.getId());
         newClient.setName(clientObj.getName());
-        newClient.setDateOfBirth(clientObj.getDateOfBirth());
+//        newClient.setDateOfBirth(clientObj.getDateOfBirth());
         newClient.setCpf(clientObj.getCpf());
         newClient.setEmail(clientObj.getEmail());
         newClient.setNationality(clientObj.getNationality());

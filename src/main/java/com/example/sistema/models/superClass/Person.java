@@ -32,16 +32,16 @@ public class Person {
     @Size(groups = CreatePerson.class, min = 3, max = 60)
     private String name;
 
-    @Column(name = "dateOfBirth", nullable = false)
-    @NotNull(groups = CreatePerson.class)
-    @NotBlank(groups = CreatePerson.class)
-    private Date dateOfBirth;
+//    @Column(name = "dateOfBirth", nullable = false)
+//    @NotNull(groups = CreatePerson.class)
+//    @NotBlank(groups = CreatePerson.class)
+//    private Date dateOfBirth;
 
     @Column(name = "cpf", length = 11, nullable = false, unique = true)
     @NotNull(groups = CreatePerson.class)
     @NotBlank(groups = CreatePerson.class)
     @Size(groups = CreatePerson.class, min = 11, max = 11)
-    private  String cpf;
+    private String cpf;
 
     @Column(name = "address", length = 60, nullable = false)
     @NotNull(groups = CreatePerson.class)
@@ -69,6 +69,5 @@ public class Person {
 
     @Column(name = "isActive", nullable = false)
     @NotNull(groups = CreatePerson.class)
-    @NotBlank(groups = CreatePerson.class)
     private Boolean isActive;
 }
