@@ -37,6 +37,7 @@ public class EmployeeService {
         return employeeRepository.findAll();
     }
 
+    @Transactional
     public Employee update(Employee employeeObj) {
         Employee employee = findById(employeeObj.getId());
 

@@ -25,15 +25,15 @@ public class Employee extends Person {
     public interface CreateEmployee{}
     public interface UpdateEmployee{}
 
-    @Column(name = "hiringDate", nullable = false)
-    @NotNull(groups = CreateEmployee.class)
-    @NotBlank(groups = CreateEmployee.class)
-    private Date hiringDate;
+//    @Column(name = "hiringDate", nullable = false)
+//    @NotNull(groups = CreateEmployee.class)
+//    @NotBlank(groups = CreateEmployee.class)
+//    private Date hiringDate;
 
-    @Column(name = "sector", length = 20, nullable = false)
+    @Column(name = "sector", length = 60, nullable = false)
     @NotNull(groups = CreateEmployee.class)
     @NotBlank(groups = CreateEmployee.class)
-    @Size(groups = CreateEmployee.class, min = 2, max = 20)
+    @Size(groups = CreateEmployee.class, min = 2, max = 60)
     private String sector;
 
     @Column(name = "Area", length = 30, nullable = false)
@@ -42,10 +42,10 @@ public class Employee extends Person {
     @Size(groups = CreateEmployee.class, min = 2, max = 30)
     private String Area;
 
-    @Column(name = "workSchedule", length = 14, nullable = false)
+    @Column(name = "workSchedule", length = 30, nullable = false)
     @NotNull(groups = CreateEmployee.class)
     @NotBlank(groups = CreateEmployee.class)
-    @Size(groups = CreateEmployee.class, min = 13, max = 14)
+    @Size(groups = CreateEmployee.class, min = 13, max = 30)
     private String workSchedule;
 
     @Column(name = "salary", length = 10, nullable = false)
