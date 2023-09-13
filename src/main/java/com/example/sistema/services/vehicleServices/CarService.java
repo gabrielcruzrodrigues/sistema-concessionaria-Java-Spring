@@ -1,0 +1,66 @@
+package com.example.sistema.services.vehicleServices;
+
+import com.example.sistema.models.vehiclesModels.Car;
+import com.example.sistema.repositories.vehiclesRepositories.CarRepository;
+import com.example.sistema.services.exceptions.DataBidingViolationException;
+import com.example.sistema.services.exceptions.ObjectNotFoundException;
+import jakarta.transaction.Transactional;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+import java.util.Optional;
+
+@Service
+public class CarService {
+
+    @Autowired
+    private CarRepository carRepository;
+
+    @Transactional
+    public Car create(Car carObj) {
+        carObj.setId(null);
+        return carRepository.save(carObj);
+    }
+
+    public List<Car> findAll() {
+        return carRepository.findAll();
+    }
+
+    public Car findById(Long id) {
+        Optional<Car> car = carRepository.findById(id);
+        return car.orElseThrow(() -> new ObjectNotFoundException(
+                "Onibus não encontrado! Id:" + id + ", Tipo: " + Car.class.getName()
+        ));
+    }
+
+    public Car update(Car carObj) {
+        Car car = findById(carObj.getId());
+
+        //data not changed
+        carObj.setId(car.getId());
+        carObj.setPlate(car.getPlate());
+        carObj.setChassi(car.getChassi());
+//        carObj.setManufacturingDate(bus.getManufacturingDate());
+        carObj.setModel(car.getModel());
+        carObj.setStage(car.getStage());
+        carObj.setMileage(car.getMileage());
+        carObj.setWeight(car.getWeight());
+        carObj.setFuelConsumptionPerLiter(car.getFuelConsumptionPerLiter());
+        carObj.setModel(car.getMotor());
+        carObj.setPower(car.getPower());
+        carObj.setTorque(car.getTorque());
+        carObj.setTraction(car.getTraction());
+        carObj.setSunroof(car.getSunroof());
+        return carRepository.save(carObj);
+    }
+
+    public void delete(Long id) {
+        findById(id);
+        try {
+            carRepository.deleteById(id);
+        } catch(Exception ex) {
+            throw new DataBidingViolationException("Não a possivel excluir pois há entidades relacionadas");
+        }
+    }
+}
