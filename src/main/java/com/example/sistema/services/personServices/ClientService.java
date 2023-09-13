@@ -40,7 +40,7 @@ public class ClientService {
     }
 
     @Transactional
-    public void update(Client clientObj) {
+    public Client update(Client clientObj) {
         Client newClient = findById(clientObj.getId());
 
         //data not changed
@@ -51,7 +51,7 @@ public class ClientService {
         newClient.setEmail(clientObj.getEmail());
         newClient.setNationality(clientObj.getNationality());
 
-        this.clientRepository.save(newClient);
+        return clientRepository.save(newClient);
     }
 
     public void delete(Long id) {

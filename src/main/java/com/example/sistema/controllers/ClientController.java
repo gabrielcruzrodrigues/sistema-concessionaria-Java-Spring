@@ -40,8 +40,15 @@ public class ClientController {
         return ResponseEntity.status(HttpStatus.OK).body(client);
     }
 
+    @PutMapping("/{id}")
+    public ResponseEntity<Object> update (@Valid @RequestBody Client clientObj, @PathVariable Long id) {
+        clientObj.setId(id);
+        Client client = this.clientService.update(clientObj);
+        return ResponseEntity.status(HttpStatus.OK).body(client);
+    }
+
     @DeleteMapping("/{id}")
-    public ResponseEntity delete(@PathVariable Long id) {
+    public ResponseEntity<Object> delete(@PathVariable Long id) {
         this.clientService.delete(id);
         return ResponseEntity.status(HttpStatus.OK).body("Cliente deletado!");
     }
