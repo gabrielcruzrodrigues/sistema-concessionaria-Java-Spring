@@ -6,6 +6,7 @@ import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
@@ -14,6 +15,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/seller")
+@Validated
 public class SellerController {
 
     @Autowired
@@ -29,7 +31,7 @@ public class SellerController {
                 .buildAndExpand(seller.getId())
                 .toUri();
 
-        return ResponseEntity.status(HttpStatus.OK).body(seller);
+        return ResponseEntity.created(uri).body(seller);
     }
 
     @GetMapping

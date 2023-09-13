@@ -26,6 +26,12 @@ public class Vehicle {
     @Column(name = "id", unique = true)
     private Long id;
 
+    @Column(name = "name", length = 30, nullable = false)
+    @NotNull(groups = CreateVehicle.class)
+    @NotBlank(groups = CreateVehicle.class)
+    @Size(groups = CreateVehicle.class, min = 3, max = 30)
+    private String name;
+
     @Column(name = "plate", length = 7, nullable = false, unique = true)
     @NotNull(groups = CreateVehicle.class)
     @NotBlank(groups = CreateVehicle.class)

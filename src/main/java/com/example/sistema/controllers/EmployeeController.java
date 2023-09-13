@@ -31,7 +31,7 @@ public class EmployeeController {
                 .buildAndExpand(employee.getId())
                 .toUri();
 
-        return ResponseEntity.status(HttpStatus.OK).body(employee);
+        return ResponseEntity.created(uri).body(employee);
     }
 
     @GetMapping
