@@ -24,16 +24,13 @@ public class Motorcycle extends Vehicle {
 
     @Column(name = "displacement", nullable = false)
     @NotNull(groups = CreateMotorcycle.class)
-    @NotBlank(groups = CreateMotorcycle.class)
     private Double displacement;
 
     @Column(name = "clutch", nullable = false)
     @NotNull(groups = CreateMotorcycle.class)
-    @NotBlank(groups = CreateMotorcycle.class)
     private Boolean clutch;
 
     @Column(name = "ignitionSystem", nullable = false)
     @NotNull(groups = CreateMotorcycle.class)
-    @NotBlank(groups = CreateMotorcycle.class)
     private Boolean ignitionSystem;
 }

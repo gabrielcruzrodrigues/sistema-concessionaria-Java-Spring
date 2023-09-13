@@ -35,6 +35,7 @@ public class BusService {
         return busRepository.findAll();
     }
 
+    @Transactional
     public Bus update(Bus busObj) {
         Bus bus = findById(busObj.getId());
 
