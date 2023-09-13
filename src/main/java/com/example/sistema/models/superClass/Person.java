@@ -37,7 +37,7 @@ public class Person {
     @NotBlank(groups = CreatePerson.class)
     private Date dateOfBirth;
 
-    @Column(name = "cpf", length = 11, nullable = false)
+    @Column(name = "cpf", length = 11, nullable = false, unique = true)
     @NotNull(groups = CreatePerson.class)
     @NotBlank(groups = CreatePerson.class)
     @Size(groups = CreatePerson.class, min = 11, max = 11)
@@ -49,13 +49,13 @@ public class Person {
     @Size(groups = CreatePerson.class, min = 5, max = 60)
     private String address;
 
-    @Column(name = "phoneNumber", length = 11, nullable = false)
+    @Column(name = "phoneNumber", length = 11, nullable = false, unique = true)
     @NotNull(groups = CreatePerson.class)
     @NotBlank(groups = CreatePerson.class)
     @Size(groups = CreatePerson.class, min = 11, max = 11)
     private String phoneNumber;
 
-    @Column(name = "email", length = 60, nullable = false)
+    @Column(name = "email", length = 60, nullable = false, unique = true)
     @NotNull(groups = CreatePerson.class)
     @NotBlank(groups = CreatePerson.class)
     @Size(groups = CreatePerson.class, min = 11, max = 60)
