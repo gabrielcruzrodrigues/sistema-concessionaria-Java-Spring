@@ -16,7 +16,7 @@ import java.util.Date;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@EqualsAndHashCode
+@EqualsAndHashCode(callSuper = false)
 public class Employee extends Person {
 
     public interface CreateEmployee{}
@@ -33,11 +33,11 @@ public class Employee extends Person {
     @Size(groups = CreateEmployee.class, min = 2, max = 20)
     private String sector;
 
-    @Column(name = "function", length = 30, nullable = false)
+    @Column(name = "Area", length = 30, nullable = false)
     @NotNull(groups = CreateEmployee.class)
     @NotBlank(groups = CreateEmployee.class)
     @Size(groups = CreateEmployee.class, min = 2, max = 30)
-    private String function;
+    private String Area;
 
     @Column(name = "workSchedule", length = 14, nullable = false)
     @NotNull(groups = CreateEmployee.class)

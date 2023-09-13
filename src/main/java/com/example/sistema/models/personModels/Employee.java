@@ -1,5 +1,6 @@
 package com.example.sistema.models.personModels;
 
+import com.example.sistema.models.superClass.Person;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
@@ -18,8 +19,8 @@ import java.util.Date;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@EqualsAndHashCode
-public class Employee extends com.example.sistema.models.superClass.Employee {
+@EqualsAndHashCode(callSuper = false)
+public class Employee extends Person {
 
     public interface CreateEmployee{}
     public interface UpdateEmployee{}
@@ -35,11 +36,11 @@ public class Employee extends com.example.sistema.models.superClass.Employee {
     @Size(groups = CreateEmployee.class, min = 2, max = 20)
     private String sector;
 
-    @Column(name = "function", length = 30, nullable = false)
+    @Column(name = "Area", length = 30, nullable = false)
     @NotNull(groups = CreateEmployee.class)
     @NotBlank(groups = CreateEmployee.class)
     @Size(groups = CreateEmployee.class, min = 2, max = 30)
-    private String function;
+    private String Area;
 
     @Column(name = "workSchedule", length = 14, nullable = false)
     @NotNull(groups = CreateEmployee.class)
@@ -49,13 +50,11 @@ public class Employee extends com.example.sistema.models.superClass.Employee {
 
     @Column(name = "salary", length = 10, nullable = false)
     @NotNull(groups = CreateEmployee.class)
-    @NotBlank(groups = CreateEmployee.class)
     @Size(groups = CreateEmployee.class, min = 2, max = 10)
     private Double salary;
 
     @Column(name = "pcd", nullable = false)
     @NotNull(groups = CreateEmployee.class)
-    @NotBlank(groups = CreateEmployee.class)
     private Boolean pcd;
 
 }
