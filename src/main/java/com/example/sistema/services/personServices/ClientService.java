@@ -32,9 +32,16 @@ public class ClientService {
         ));
     }
 
+    public Client findById(Long id) {
+        Optional<Client> client = clientRepository.findById(id);
+        return client.orElseThrow(() -> new ObjectNotFoundException(
+                "Cliente não encontrado! Id: " + id + ", Tipo: " + Client.class.getName()
+        ));
+    }
+
     @Transactional
     public void update(Client clientObj) {
-        Client newClient = clientRepository.findByClientCpf(clientObj.getCpf());
+        Client newClient = findById(clientObj.getId());
 
         //data not changed
         newClient.setId(clientObj.getId());
@@ -48,7 +55,7 @@ public class ClientService {
     }
 
     public void delete(Client client) {
-        findByClientCpf(client.getCpf());
+        findById(client.getId());
         try {
             clientRepository.delete(client);
         } catch(Exception ex) {
