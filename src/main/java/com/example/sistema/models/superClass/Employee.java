@@ -22,10 +22,10 @@ public class Employee extends Person {
     public interface CreateEmployee{}
     public interface UpdateEmployee{}
 
-    @Column(name = "hiringDate", nullable = false)
-    @NotNull(groups = CreateEmployee.class)
-    @NotBlank(groups = CreateEmployee.class)
-    private Date hiringDate;
+//    @Column(name = "hiringDate", nullable = false)
+//    @NotNull(groups = CreateEmployee.class)
+//    @NotBlank(groups = CreateEmployee.class)
+//    private Date hiringDate;
 
     @Column(name = "sector", length = 60, nullable = false)
     @NotNull(groups = CreateEmployee.class)
