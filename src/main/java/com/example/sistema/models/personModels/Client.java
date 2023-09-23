@@ -1,9 +1,8 @@
 package com.example.sistema.models.personModels;
 
+import com.example.sistema.models.Sale;
 import com.example.sistema.models.superClass.Person;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -43,4 +42,8 @@ public class Client extends Person {
     @Column(name = "approvedFinancing", nullable = false)
     @NotNull(groups = CreatePerson.class)
     private Boolean approvedFinancing;
+
+    @OneToOne
+    @JoinColumn(name = "sale_id")
+    private Sale sale;
 }

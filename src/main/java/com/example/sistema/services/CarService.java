@@ -1,7 +1,7 @@
-package com.example.sistema.services.vehicleServices;
+package com.example.sistema.services;
 
-import com.example.sistema.models.vehiclesModels.Car;
-import com.example.sistema.repositories.vehiclesRepositories.CarRepository;
+import com.example.sistema.models.Car;
+import com.example.sistema.repositories.CarRepository;
 import com.example.sistema.services.exceptions.DataBidingViolationException;
 import com.example.sistema.services.exceptions.ObjectNotFoundException;
 import jakarta.transaction.Transactional;

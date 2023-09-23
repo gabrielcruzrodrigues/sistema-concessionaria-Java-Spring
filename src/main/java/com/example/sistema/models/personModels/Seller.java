@@ -1,9 +1,8 @@
 package com.example.sistema.models.personModels;
 
+import com.example.sistema.models.Sale;
 import com.example.sistema.models.superClass.Employee;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
@@ -41,4 +40,8 @@ public class Seller extends Employee {
     @NotNull(groups = CreateSeller.class)
     @NotBlank(groups = CreateSeller.class)
     private String cityWork;
+
+    @OneToOne
+    @JoinColumn(name = "pessoa_id")
+    private Sale sale;
 }

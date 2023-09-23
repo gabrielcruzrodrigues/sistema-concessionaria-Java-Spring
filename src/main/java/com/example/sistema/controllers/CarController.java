@@ -1,7 +1,7 @@
 package com.example.sistema.controllers;
 
-import com.example.sistema.models.vehiclesModels.Car;
-import com.example.sistema.services.vehicleServices.CarService;
+import com.example.sistema.models.Car;
+import com.example.sistema.services.CarService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
