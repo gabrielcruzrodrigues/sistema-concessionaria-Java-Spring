@@ -10,6 +10,8 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
+import java.util.Date;
+
 @Entity
 @Table(name = "TB_SELLERS")
 @Data
@@ -18,30 +20,35 @@ import lombok.NoArgsConstructor;
 @EqualsAndHashCode(callSuper = false)
 public class Seller extends Employee {
 
-    public interface CreateSeller{}
-    public interface updateSeller{}
-
     @Column(name = "quantitySales", nullable = false)
-    @NotNull(groups = CreateSeller.class)
-    @NotBlank(groups = CreateSeller.class)
+    @NotNull
     private Integer quantitySales;
 
     @Column(name = "quantitySalesMonth", nullable = false)
-    @NotNull(groups = CreateSeller.class)
-    @NotBlank(groups = CreateSeller.class)
+    @NotNull
     private Integer quantitySalesMonth;
 
     @Column(name = "valueTotalSalesMonth", nullable = false)
-    @NotNull(groups = CreateSeller.class)
-    @NotBlank(groups = CreateSeller.class)
+    @NotNull
     private Double valueTotalSalesMonth;
 
     @Column(name = "cityWork", length = 20, nullable = false)
-    @NotNull(groups = CreateSeller.class)
-    @NotBlank(groups = CreateSeller.class)
+    @NotNull
+    @NotBlank
     private String cityWork;
 
-    @OneToOne
-    @JoinColumn(name = "pessoa_id")
-    private Sale sale;
+    public Seller(Long id, String name, Date dateOfBirth, String cpf, String address, String phoneNumber, String email, String nationality,
+                  Boolean isActive, String sector, String area, String workSchedule, Double salary, Boolean pcd, Integer quantitySales,
+                  Integer quantitySalesMonth, Double valueTotalSalesMonth, String cityWork) {
+
+        super(id, name, dateOfBirth, cpf, address, phoneNumber, email, nationality, isActive, sector, area, workSchedule, salary, pcd);
+        this.quantitySales = quantitySales;
+        this.quantitySalesMonth = quantitySalesMonth;
+        this.valueTotalSalesMonth = valueTotalSalesMonth;
+        this.cityWork = cityWork;
+    }
+
+    //    @OneToOne
+//    @JoinColumn(name = "pessoa_id")
+//    private Sale sale;
 }

@@ -21,13 +21,13 @@ public class Sale {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @OneToOne(mappedBy = "sale", cascade = CascadeType.ALL)
-    @JoinColumn(name = "seller_id")
-    private Seller sellerId;
+//    @OneToOne(mappedBy = "sale", cascade = CascadeType.ALL)
+//    @JoinColumn(name = "seller_id")
+//    private Seller sellerId;
 
-    @OneToOne(mappedBy = "sale", cascade = CascadeType.ALL)
-    @JoinColumn(name = "client_id")
-    private Client clientId;
+//    @OneToOne(mappedBy = "sale", cascade = CascadeType.ALL)
+//    @JoinColumn(name = "client_id")
+//    private Client clientId;
 
 //    @OneToOne
 //    @JoinColumn(name = "car_id")

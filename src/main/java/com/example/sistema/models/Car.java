@@ -14,13 +14,14 @@ import lombok.extern.slf4j.Slf4j;
 
 import java.util.Date;
 
+@EqualsAndHashCode(callSuper = true)
 @Slf4j
 @Entity
 @Table(name = "TB_CARS")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@EqualsAndHashCode
+//@EqualsAndHashCode
 public class Car extends Vehicle {
 
 
@@ -55,12 +56,12 @@ public class Car extends Vehicle {
     @NotNull(groups = CreateCar.class)
     private Boolean sensorsAndCameras;
 
-    public Car(String name, String year, String plate, String color, String chassi, String model, String stage, Double mileage,
+    public Car(String name, String manufacture_year, String plate, String color, String chassi, String model, String stage, Double mileage,
                String weight, String fuelConsumptionPerLiter, String motor, String power, String torque, boolean isAvailable,
                boolean electricWindows, boolean automaticTransmission, String traction, boolean hydraulicSteering, boolean gps,
                boolean sunroof, boolean sensorsAndCameras) {
 
-        super(name, year, plate, color, chassi, model, stage, mileage, weight, fuelConsumptionPerLiter, motor, power, torque, isAvailable);
+        super(name, manufacture_year, plate, color, chassi, model, stage, mileage, weight, fuelConsumptionPerLiter, motor, power, torque, isAvailable);
         this.electricWindows = electricWindows;
         this.automaticTransmission = automaticTransmission;
         this.traction = traction;

@@ -30,9 +30,9 @@ public class Vehicle {
     @Size(min = 3, max = 30)
     private String name;
 
-    @Column(name = "year")
+    @Column(name = "manufacture_year")
     @NotNull
-    private String year;
+    private String manufacture_year;
 
     @Column(name = "plate", length = 7, nullable = false, unique = true)
     @NotNull
@@ -97,11 +97,11 @@ public class Vehicle {
     @Column(name = "isAvailable", nullable = false)
     private Boolean isAvailable;
 
-    public Vehicle(String name, String year, String plate, String color, String chassi, String model, String stage, Double mileage,
+    public Vehicle(String name, String manufacture_year, String plate, String color, String chassi, String model, String stage, Double mileage,
                    String weight, String fuelConsumptionPerLiter, String motor, String power, String torque, boolean isAvailable) {
 
         this.name = name;
-        this.year = year;
+        this.manufacture_year = manufacture_year;
         this.plate = plate;
         this.color = color;
         this.chassi = chassi;

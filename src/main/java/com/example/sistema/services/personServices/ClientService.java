@@ -68,4 +68,6 @@ public class ClientService {
             throw new DataBidingViolationException("Não a possivel excluir pois há entidades relacionadas");
         }
     }
+
+
 }

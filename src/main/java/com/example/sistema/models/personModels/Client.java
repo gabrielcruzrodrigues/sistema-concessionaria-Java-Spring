@@ -22,10 +22,6 @@ public class Client extends Person {
     public interface CreatePerson{}
     public interface UpdatePerson{}
 
-    @Column(name = "isActive", nullable = false)
-    @NotNull(groups = CreatePerson.class)
-    private Boolean isActive;
-
 //    @Column(name = "lastPurchase", nullable = false)
 //    @NotNull(groups = CreatePerson.class)
 //    @NotBlank(groups = CreatePerson.class)
@@ -43,7 +39,15 @@ public class Client extends Person {
     @NotNull(groups = CreatePerson.class)
     private Boolean approvedFinancing;
 
-    @OneToOne
-    @JoinColumn(name = "sale_id")
-    private Sale sale;
+//    @OneToOne
+//    @JoinColumn(name = "sale_id")
+//    private Sale sale;
+
+    public Client(Long id, String name, Date dateOfBirth, String cpf, String address, String phoneNumber, String email, String nationality,
+                  Boolean isActive, Double creditCompany, Double monthlySalary, Boolean approvedFinancing) {
+        super(id, name, dateOfBirth, cpf, address, phoneNumber, email, nationality, isActive);
+        this.creditCompany = creditCompany;
+        this.monthlySalary = monthlySalary;
+        this.approvedFinancing = approvedFinancing;
+    }
 }

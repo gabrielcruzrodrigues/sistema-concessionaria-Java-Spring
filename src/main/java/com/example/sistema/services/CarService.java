@@ -42,10 +42,9 @@ public class CarService {
 
         //data not changed
         carObj.setId(car.getId());
-        carObj.setYear(car.getYear());
+        carObj.setManufacture_year(car.getManufacture_year());
         carObj.setPlate(car.getPlate());
         carObj.setChassi(car.getChassi());
-//        carObj.setManufacturingDate(bus.getManufacturingDate());
         carObj.setModel(car.getModel());
         carObj.setStage(car.getStage());
         carObj.setMileage(car.getMileage());
@@ -67,9 +66,4 @@ public class CarService {
             throw new DataBidingViolationException("Não a possivel excluir pois há entidades relacionadas");
         }
     }
-
-//    public Date formatDate(String date) throws ParseException {
-//        SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
-//        return format.parse(date);
-//    }
 }
