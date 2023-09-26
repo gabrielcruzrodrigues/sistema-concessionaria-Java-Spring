@@ -8,6 +8,9 @@ import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -39,6 +42,7 @@ public class CarService {
 
         //data not changed
         carObj.setId(car.getId());
+        carObj.setYear(car.getYear());
         carObj.setPlate(car.getPlate());
         carObj.setChassi(car.getChassi());
 //        carObj.setManufacturingDate(bus.getManufacturingDate());
@@ -63,4 +67,9 @@ public class CarService {
             throw new DataBidingViolationException("Não a possivel excluir pois há entidades relacionadas");
         }
     }
+
+//    public Date formatDate(String date) throws ParseException {
+//        SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+//        return format.parse(date);
+//    }
 }
