@@ -30,6 +30,7 @@ public class CarService {
         return carRepository.findAll();
     }
 
+    @Transactional
     public Car findById(Long id) {
         Optional<Car> car = carRepository.findById(id);
         return car.orElseThrow(() -> new ObjectNotFoundException(
@@ -65,5 +66,12 @@ public class CarService {
         } catch(Exception ex) {
             throw new DataBidingViolationException("Não a possivel excluir pois há entidades relacionadas");
         }
+    }
+
+    @Transactional
+    public void setNotActive(Long id) {
+        Car car = findById(id);
+        car.setIsActive(false);
+        update(car);
     }
 }
