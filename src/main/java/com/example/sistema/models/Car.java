@@ -15,7 +15,7 @@ import java.util.Date;
 @EqualsAndHashCode(callSuper = true)
 @Slf4j
 @Entity
-@Table(name = "TB_CAR")
+@Table(name = "CAR")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor

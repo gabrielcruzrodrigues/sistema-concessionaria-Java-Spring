@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 import java.util.Date;
 
 @Entity
-@Table(name = "TB_SALE")
+@Table(name = "SALE")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
