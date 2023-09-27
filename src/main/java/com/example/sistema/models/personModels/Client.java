@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 import java.util.Date;
 
 @Entity
-@Table(name = "TB_CLIENTS")
+@Table(name = "TB_CLIENT")
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper = false)
@@ -39,9 +39,8 @@ public class Client extends Person {
     @NotNull(groups = CreatePerson.class)
     private Boolean approvedFinancing;
 
-//    @OneToOne
-//    @JoinColumn(name = "sale_id")
-//    private Sale sale;
+    @OneToOne(mappedBy = "client", cascade = CascadeType.ALL)
+    private Sale sale;
 
     public Client(Long id, String name, Date dateOfBirth, String cpf, String address, String phoneNumber, String email, String nationality,
                   Boolean isActive, Double creditCompany, Double monthlySalary, Boolean approvedFinancing) {

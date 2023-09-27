@@ -10,7 +10,7 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "TB_SALES")
+@Table(name = "TB_SALE")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -21,13 +21,11 @@ public class Sale {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-//    @OneToOne(mappedBy = "sale", cascade = CascadeType.ALL)
-//    @JoinColumn(name = "seller_id")
-//    private Seller sellerId;
+    @OneToOne
+    private Seller seller;
 
-//    @OneToOne(mappedBy = "sale", cascade = CascadeType.ALL)
-//    @JoinColumn(name = "client_id")
-//    private Client clientId;
+    @OneToOne
+    private Client client;
 
 //    @OneToOne
 //    @JoinColumn(name = "car_id")

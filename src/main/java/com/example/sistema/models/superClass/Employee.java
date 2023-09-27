@@ -21,11 +21,6 @@ import java.util.Date;
 @EqualsAndHashCode
 public class Employee extends Person {
 
-//    @Column(name = "hiringDate", nullable = false)
-//    @NotNull
-//    @NotBlank
-//    private Date hiringDate;
-
     @Column(name = "sector", length = 60, nullable = false)
     @NotNull
     @NotBlank

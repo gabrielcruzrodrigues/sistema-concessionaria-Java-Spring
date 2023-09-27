@@ -1,9 +1,7 @@
 package com.example.sistema.models;
 
 import com.example.sistema.models.superClass.Vehicle;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
@@ -17,7 +15,7 @@ import java.util.Date;
 @EqualsAndHashCode(callSuper = true)
 @Slf4j
 @Entity
-@Table(name = "TB_CARS")
+@Table(name = "TB_CAR")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor

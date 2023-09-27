@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 import java.util.Date;
 
 @Entity
-@Table(name = "TB_SELLERS")
+@Table(name = "TB_SELLER")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -37,6 +37,9 @@ public class Seller extends Employee {
     @NotBlank
     private String cityWork;
 
+    @OneToOne(mappedBy = "seller", cascade = CascadeType.ALL)
+    private Sale sale;
+
     public Seller(Long id, String name, Date dateOfBirth, String cpf, String address, String phoneNumber, String email, String nationality,
                   Boolean isActive, String sector, String area, String workSchedule, Double salary, Boolean pcd, Integer quantitySales,
                   Integer quantitySalesMonth, Double valueTotalSalesMonth, String cityWork) {
@@ -48,7 +51,4 @@ public class Seller extends Employee {
         this.cityWork = cityWork;
     }
 
-    //    @OneToOne
-//    @JoinColumn(name = "pessoa_id")
-//    private Sale sale;
 }
