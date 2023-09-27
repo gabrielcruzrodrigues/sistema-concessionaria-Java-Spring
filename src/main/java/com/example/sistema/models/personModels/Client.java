@@ -28,15 +28,15 @@ public class Client extends Person {
 //    private Date lastPurchase;
 
     @Column(name = "creditCompany",length = 20, nullable = false)
-    @NotNull(groups = CreatePerson.class)
+    @NotNull
     private Double creditCompany;
 
     @Column(name = "monthlySalary",length = 20, nullable = false)
-    @NotNull(groups = CreatePerson.class)
+    @NotNull
     private Double monthlySalary;
 
     @Column(name = "approvedFinancing", nullable = false)
-    @NotNull(groups = CreatePerson.class)
+    @NotNull
     private Boolean approvedFinancing;
 
     @OneToOne(mappedBy = "client")

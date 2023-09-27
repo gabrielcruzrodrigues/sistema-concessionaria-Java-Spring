@@ -94,11 +94,11 @@ public class Vehicle {
     @NotBlank
     private String torque;
 
-    @Column(name = "isAvailable", nullable = false)
-    private Boolean isAvailable;
+    @Column(name = "isActive", nullable = false)
+    private Boolean isActive;
 
     public Vehicle(String name, String manufacture_year, String plate, String color, String chassi, String model, String stage, Double mileage,
-                   String weight, String fuelConsumptionPerLiter, String motor, String power, String torque, boolean isAvailable) {
+                   String weight, String fuelConsumptionPerLiter, String motor, String power, String torque, boolean isActive) {
 
         this.name = name;
         this.manufacture_year = manufacture_year;
@@ -113,6 +113,6 @@ public class Vehicle {
         this.motor = motor;
         this.power = power;
         this.torque = torque;
-        this.isAvailable = isAvailable;
+        this.isActive = isActive;
     }
 }

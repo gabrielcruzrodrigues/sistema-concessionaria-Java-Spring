@@ -4,10 +4,13 @@ import com.example.sistema.models.personModels.Client;
 import com.example.sistema.models.personModels.Seller;
 import com.example.sistema.models.Car;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+
+import java.util.Date;
 
 @Entity
 @Table(name = "TB_SALE")
@@ -29,9 +32,11 @@ public class Sale {
     @JoinColumn(name = "client_id")
     private Client client;
 
-//    @ManyToOne
-//    @JoinColumn(name = "car_id")
-//    private Car carId;
+    @OneToOne
+    @JoinColumn(name = "car_id")
+    private Car carId;
 
-
+    @Column(name = "createAt", nullable = true)
+    @NotNull
+    private Date createAt;
 }
