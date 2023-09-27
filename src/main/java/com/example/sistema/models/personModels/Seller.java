@@ -11,6 +11,7 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "TB_SELLER")
@@ -37,8 +38,8 @@ public class Seller extends Employee {
     @NotBlank
     private String cityWork;
 
-    @OneToOne(mappedBy = "seller", cascade = CascadeType.ALL)
-    private Sale sale;
+    @OneToMany(mappedBy = "seller")
+    private List<Sale> sales;
 
     public Seller(Long id, String name, Date dateOfBirth, String cpf, String address, String phoneNumber, String email, String nationality,
                   Boolean isActive, String sector, String area, String workSchedule, Double salary, Boolean pcd, Integer quantitySales,

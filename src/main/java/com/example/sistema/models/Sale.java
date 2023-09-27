@@ -21,15 +21,17 @@ public class Sale {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @OneToOne
+    @ManyToOne
+    @JoinColumn(name = "seller_id")
     private Seller seller;
 
-    @OneToOne
+    @ManyToOne
+    @JoinColumn(name = "client_id")
     private Client client;
 
-//    @OneToOne
+//    @ManyToOne
 //    @JoinColumn(name = "car_id")
 //    private Car carId;
 
-//    private Date createdAt;
+
 }

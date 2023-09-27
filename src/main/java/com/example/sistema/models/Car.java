@@ -54,6 +54,9 @@ public class Car extends Vehicle {
     @NotNull(groups = CreateCar.class)
     private Boolean sensorsAndCameras;
 
+//    @OneToOne(mappedBy = "carId", cascade = CascadeType.ALL)
+//    private Sale sale;
+
     public Car(String name, String manufacture_year, String plate, String color, String chassi, String model, String stage, Double mileage,
                String weight, String fuelConsumptionPerLiter, String motor, String power, String torque, boolean isAvailable,
                boolean electricWindows, boolean automaticTransmission, String traction, boolean hydraulicSteering, boolean gps,

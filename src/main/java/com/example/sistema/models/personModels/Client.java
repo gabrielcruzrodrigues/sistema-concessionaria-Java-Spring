@@ -39,7 +39,7 @@ public class Client extends Person {
     @NotNull(groups = CreatePerson.class)
     private Boolean approvedFinancing;
 
-    @OneToOne(mappedBy = "client", cascade = CascadeType.ALL)
+    @OneToOne(mappedBy = "client")
     private Sale sale;
 
     public Client(Long id, String name, Date dateOfBirth, String cpf, String address, String phoneNumber, String email, String nationality,
