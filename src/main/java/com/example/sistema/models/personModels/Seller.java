@@ -2,6 +2,8 @@ package com.example.sistema.models.personModels;
 
 import com.example.sistema.models.Sale;
 import com.example.sistema.models.superClass.Employee;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;

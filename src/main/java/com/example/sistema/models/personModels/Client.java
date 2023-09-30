@@ -2,6 +2,9 @@ package com.example.sistema.models.personModels;
 
 import com.example.sistema.models.Sale;
 import com.example.sistema.models.superClass.Person;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
@@ -38,6 +41,7 @@ public class Client extends Person {
     @Column(name = "approvedFinancing", nullable = false)
     @NotNull
     private Boolean approvedFinancing;
+
 
     @OneToOne(mappedBy = "client")
     private Sale sale;

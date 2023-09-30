@@ -1,6 +1,7 @@
 package com.example.sistema.models;
 
 import com.example.sistema.models.superClass.Vehicle;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;

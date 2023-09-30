@@ -27,9 +27,6 @@ public class SaleService {
 
         carService.setNotActive(saleSave.getCarId().getId());
 
-//        CarService carService = new CarService();
-//        carService.setNotActive();
-
         return saleSave;
     }
 
@@ -38,16 +35,8 @@ public class SaleService {
         return sale.orElseThrow(() -> new RuntimeException("venda não encontrada"));
     }
 
+    @Transactional
     public List<Sale> findAll() {
         return saleRepository.findAll();
-    }
-
-    public void delete(Long id) {
-        findById(id);
-        try {
-            saleRepository.deleteById(id);
-        } catch (Exception ex) {
-            throw new RuntimeException("erro ao deletar venda");
-        }
     }
 }
