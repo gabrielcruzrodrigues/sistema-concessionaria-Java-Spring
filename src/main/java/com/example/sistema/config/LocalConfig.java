@@ -1,4 +1,4 @@
-package com.example.sistema.Config;
+package com.example.sistema.config;
 
 import com.example.sistema.models.Car;
 import com.example.sistema.models.personModels.Client;

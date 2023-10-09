@@ -42,7 +42,7 @@ public class MainExceptionHandler {
         StandardError error = new StandardError(
                 LocalDateTime.now(),
                 HttpStatus.CONFLICT.value(),
-                ex.getBindingResult().getFieldError().getDefaultMessage(),
+                ex.getBindingResult().getFieldError().getField() + " " + ex.getFieldError().getDefaultMessage(),
                 request.getRequestURI());
         return new ResponseEntity<>(error, HttpStatus.CONFLICT);
     }

@@ -33,9 +33,7 @@ public class CarService {
     @Transactional
     public Car findById(Long id) {
         Optional<Car> car = carRepository.findById(id);
-        return car.orElseThrow(() -> new ObjectNotFoundException(
-                "Onibus não encontrado! Id:" + id + ", Tipo: " + Car.class.getName()
-        ));
+        return car.orElseThrow(() -> new ObjectNotFoundException("Carro não encontrado! Id:" + id));
     }
 
     public Car update(Car carObj, Long id) {
