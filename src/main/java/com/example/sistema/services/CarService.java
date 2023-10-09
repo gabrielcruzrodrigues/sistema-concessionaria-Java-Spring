@@ -38,12 +38,13 @@ public class CarService {
         ));
     }
 
-    public Car update(Car carObj) {
+    public Car update(Car carObj, Long id) {
+        carObj.setId(id);
         Car car = findById(carObj.getId());
 
         //data not changed
         carObj.setId(car.getId());
-        carObj.setManufacture_year(car.getManufacture_year());
+        carObj.setManufactureYear(car.getManufactureYear());
         carObj.setPlate(car.getPlate());
         carObj.setChassi(car.getChassi());
         carObj.setModel(car.getModel());
@@ -72,6 +73,6 @@ public class CarService {
     public void setNotActive(Long id) {
         Car car = findById(id);
         car.setIsActive(false);
-        update(car);
+        update(car, id);
     }
 }

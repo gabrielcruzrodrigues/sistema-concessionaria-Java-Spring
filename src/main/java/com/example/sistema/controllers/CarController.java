@@ -14,7 +14,7 @@ import java.net.URI;
 import java.util.List;
 
 @RestController
-@RequestMapping("/car")
+@RequestMapping("car")
 @Validated
 public class CarController {
 
@@ -49,14 +49,13 @@ public class CarController {
 
     @PutMapping("/{id}")
     public ResponseEntity<Car> update(@Valid @RequestBody Car carObj, @PathVariable Long id) {
-        carObj.setId(id);
-        Car car = carService.update(carObj);
+        Car car = carService.update(carObj, id);
         return ResponseEntity.status(HttpStatus.OK).body(car);
     }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<String> delete(@PathVariable Long id) {
         carService.delete(id);
-        return ResponseEntity.status(HttpStatus.OK).body("Carro deletado!");
+        return ResponseEntity.status(HttpStatus.OK).build();
     }
 }

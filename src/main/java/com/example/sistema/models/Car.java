@@ -58,12 +58,12 @@ public class Car extends Vehicle {
     @OneToOne(mappedBy = "carId")
     private Sale sale;
 
-    public Car(String name, String manufacture_year, String plate, String color, String chassi, String model, String stage, Double mileage,
+    public Car(String name, String manufactureYear, String plate, String color, String chassi, String model, String stage, Double mileage,
                String weight, String fuelConsumptionPerLiter, String motor, String power, String torque, boolean isActive,
                boolean electricWindows, boolean automaticTransmission, String traction, boolean hydraulicSteering, boolean gps,
                boolean sunroof, boolean sensorsAndCameras) {
 
-        super(name, manufacture_year, plate, color, chassi, model, stage, mileage, weight, fuelConsumptionPerLiter, motor, power, torque, isActive);
+        super(name, manufactureYear, plate, color, chassi, model, stage, mileage, weight, fuelConsumptionPerLiter, motor, power, torque, isActive);
         this.electricWindows = electricWindows;
         this.automaticTransmission = automaticTransmission;
         this.traction = traction;

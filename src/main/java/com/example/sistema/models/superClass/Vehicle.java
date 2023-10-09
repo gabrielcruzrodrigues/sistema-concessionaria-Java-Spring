@@ -18,7 +18,6 @@ import java.util.Date;
 @EqualsAndHashCode
 public class Vehicle {
 
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", unique = true)
@@ -32,7 +31,7 @@ public class Vehicle {
 
     @Column(name = "manufacture_year")
     @NotNull
-    private String manufacture_year;
+    private String manufactureYear;
 
     @Column(name = "plate", length = 7, nullable = false, unique = true)
     @NotNull
@@ -101,7 +100,7 @@ public class Vehicle {
                    String weight, String fuelConsumptionPerLiter, String motor, String power, String torque, boolean isActive) {
 
         this.name = name;
-        this.manufacture_year = manufacture_year;
+        this.manufactureYear = manufacture_year;
         this.plate = plate;
         this.color = color;
         this.chassi = chassi;
