@@ -38,10 +38,9 @@ public class Person {
     private Date dateOfBirth;
 
     @CPF
-    @Column(name = "cpf", length = 14, nullable = false, unique = true)
+    @Column(name = "cpf", length = 11, nullable = false, unique = true)
     @NotNull
     @NotBlank
-    @Size(min = 14, max = 14)
     private String cpf;
 
     @Column(name = "address", length = 60, nullable = false)

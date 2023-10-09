@@ -8,7 +8,6 @@ import jakarta.transaction.Transactional;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.GetMapping;
 
 import java.util.List;
 import java.util.Optional;
@@ -30,29 +29,28 @@ public class ClientService {
         return clientRepository.findAll();
     }
 
-    public Client findByClientCpf(String cpf) {
-        Optional<Client> client = Optional.ofNullable(clientRepository.findByClientCpf(cpf));
-        log.info(client.get().getCpf());
-        return client.orElseThrow(() -> new ObjectNotFoundException(
-                "Cliente não encontrado! cpf: " + cpf + ", Tipo: " + Client.class.getName()
-        ));
-    }
+//    public Client findByClientCpf(String cpf) {
+//        Optional<Client> client = Optional.ofNullable(clientRepository.findByClientCpf(cpf));
+//        log.info(client.get().getCpf());
+//        return client.orElseThrow(() -> new ObjectNotFoundException(
+//                "Cliente não encontrado! cpf: " + cpf + ", Tipo: " + Client.class.getName()
+//        ));
+//    }
 
     public Client findById(Long id) {
         Optional<Client> client = clientRepository.findById(id);
         return client.orElseThrow(() -> new ObjectNotFoundException(
-                "Cliente não encontrado! Id: " + id + ", Tipo: " + Client.class.getName()
-        ));
+                "Cliente não encontrado! Id: " + id));
     }
 
     @Transactional
-    public Client update(Client clientObj) {
+    public Client update(Client clientObj, Long id) {
+        clientObj.setId(id);
         Client newClient = findById(clientObj.getId());
 
         //data not changed
         newClient.setId(clientObj.getId());
         newClient.setName(clientObj.getName());
-//        newClient.setDateOfBirth(clientObj.getDateOfBirth());
         newClient.setCpf(clientObj.getCpf());
         newClient.setEmail(clientObj.getEmail());
         newClient.setNationality(clientObj.getNationality());

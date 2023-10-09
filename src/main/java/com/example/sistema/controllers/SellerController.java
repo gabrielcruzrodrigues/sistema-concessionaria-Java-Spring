@@ -48,15 +48,14 @@ public class SellerController {
 
     @PutMapping("/{id}")
     public ResponseEntity<Object> update(@Valid @RequestBody Seller sellerObj, @PathVariable Long id) {
-        sellerObj.setId(id);
-        Seller seller = sellerService.update(sellerObj);
+        Seller seller = sellerService.update(sellerObj, id);
         return ResponseEntity.status(HttpStatus.OK).body(seller);
     }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<String> delete(@PathVariable Long id) {
         sellerService.delete(id);
-        return ResponseEntity.status(HttpStatus.OK).body("Vendedor deletado");
+        return ResponseEntity.status(HttpStatus.OK).build();
     }
 
 }

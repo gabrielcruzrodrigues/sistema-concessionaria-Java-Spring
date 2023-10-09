@@ -1,6 +1,5 @@
 package com.example.sistema.services.personServices;
 
-import com.example.sistema.models.personModels.Employee;
 import com.example.sistema.models.personModels.Seller;
 import com.example.sistema.repositories.personRepositories.SellerRepository;
 import com.example.sistema.services.exceptions.DataBidingViolationException;
@@ -28,9 +27,7 @@ public class SellerService {
 
     public Seller findById(Long id) {
         Optional<Seller> seller = sellerRepository.findById(id);
-        return seller.orElseThrow(() -> new ObjectNotFoundException(
-                "Vendedor não encontrado! id: " + id + ", Tipo: " + Seller.class.getName()
-        ));
+        return seller.orElseThrow(() -> new ObjectNotFoundException("Vendedor não encontrado! id: " + id));
     }
 
     public List<Seller> findAllSellers() {
@@ -38,12 +35,12 @@ public class SellerService {
     }
     
     @Transactional
-    public Seller update(Seller sellerObj) {
+    public Seller update(Seller sellerObj, Long id) {
+        sellerObj.setId(id);
         Seller seller = findById(sellerObj.getId());
 
         sellerObj.setId(seller.getId());
         sellerObj.setName(seller.getName());
-//        sellerObj.setHiringDate(seller.getHiringDate());
         sellerObj.setCpf(seller.getCpf());
         sellerObj.setEmail(seller.getEmail());
         sellerObj.setNationality(seller.getNationality());

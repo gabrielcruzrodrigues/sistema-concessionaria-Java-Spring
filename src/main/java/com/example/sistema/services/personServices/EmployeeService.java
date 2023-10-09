@@ -38,7 +38,8 @@ public class EmployeeService {
     }
 
     @Transactional
-    public Employee update(Employee employeeObj) {
+    public Employee update(Employee employeeObj, Long id) {
+        employeeObj.setId(id);
         Employee employee = findById(employeeObj.getId());
 
         employeeObj.setId(employee.getId());
