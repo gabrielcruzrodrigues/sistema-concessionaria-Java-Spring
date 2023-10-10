@@ -91,4 +91,5 @@ Atualiza registro no banco de dados.
 #### DELETE /client/:id - status: 204
 Deleta pessoas do banco de dados.
 
+(documentação em desenvolvimento)
 
