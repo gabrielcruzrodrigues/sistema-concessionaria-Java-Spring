@@ -22,4 +22,73 @@ spring.profiles.active=local
 ```
 
 # EndPoints
-(documentação em desenvolvimento)
+
+(endpoint com problemas)
+```
+#### GET /client - status: 200
+Resgata todos os registros do banco de dados.
+
+[
+    {
+        "id": 1,
+        "name": "Gabriel",
+        "email": "gabriel@gmail.com"
+    },
+    {
+        "id": 2,
+        "name": "Samuel",
+        "email": "samuel@gmail.com"
+    }
+]
+```
+
+====================================
+
+#### GET /client/:id - status: 200
+Busca client por id.
+
+====================================
+
+#### POST /client - status: 201
+cria novo cliente.
+```
+{
+    "id": 5,
+    "name": "Davi",
+    "cpf": "00200009000",
+    "address": "Rua b, n: 56",
+    "phoneNumber": "00926881111",
+    "email": "con2ate@gmail.com",
+    "nationality": "BR",
+    "isActive": true,
+    "creditCompany": 10.0,
+    "monthlySalary": 1236.0,
+    "approvedFinancing": false
+}
+```
+
+====================================
+
+#### PUT /client/:id - status: 200
+Atualiza registro no banco de dados.
+```
+{
+    "address": "Rua b, n: 56",
+    "cpf": "11111111111",
+    "email": "contyte@gmail.com",
+    "isActive": true,
+    "name": "Davi",
+    "nationality": "BR",
+    "phoneNumber": "00986881111",
+    "approvedFinancing": false,
+    "creditCompany": 10.00,
+    "monthlySalary": 1236.00
+}
+```
+
+====================================
+
+#### DELETE /client/:id - status: 204
+Deleta pessoas do banco de dados.
+
+
