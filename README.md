@@ -24,32 +24,17 @@ spring.profiles.active=local
 # EndPoints
 
 (endpoint com problemas)
-```
-#### GET /client - status: 200
+#### GET /clients - status: 200
 Resgata todos os registros do banco de dados.
-
-[
-    {
-        "id": 1,
-        "name": "Gabriel",
-        "email": "gabriel@gmail.com"
-    },
-    {
-        "id": 2,
-        "name": "Samuel",
-        "email": "samuel@gmail.com"
-    }
-]
-```
 
 ====================================
 
-#### GET /client/:id - status: 200
+#### GET /clients/:id - status: 200
 Busca client por id.
 
 ====================================
 
-#### POST /client - status: 201
+#### POST /clients - status: 201
 cria novo cliente.
 ```
 {
@@ -69,7 +54,7 @@ cria novo cliente.
 
 ====================================
 
-#### PUT /client/:id - status: 200
+#### PUT /clients/:id - status: 200
 Atualiza registro no banco de dados.
 ```
 {
@@ -88,7 +73,7 @@ Atualiza registro no banco de dados.
 
 ====================================
 
-#### DELETE /client/:id - status: 204
+#### DELETE /clients/:id - status: 204
 Deleta pessoas do banco de dados.
 
 (documentação em desenvolvimento)
