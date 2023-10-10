@@ -5,6 +5,7 @@ import com.example.sistema.models.personModels.Seller;
 import com.example.sistema.models.Car;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
@@ -28,20 +29,22 @@ public class Sale {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @JsonIgnore
+    @JsonManagedReference
+//    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "seller_id")
     private Seller seller;
 
-    @JsonIgnore
+    @JsonManagedReference
     @ManyToOne
     @JoinColumn(name = "client_id")
     private Client client;
 
-    @JsonIgnore
+    @JsonManagedReference
     @OneToOne
     @JoinColumn(name = "car_id")
     private Car carId;
+
 
     @Column(name = "createAt")
     private LocalDateTime createAt;

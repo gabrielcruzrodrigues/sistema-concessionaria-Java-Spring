@@ -42,7 +42,7 @@ public class Client extends Person {
     @NotNull
     private Boolean approvedFinancing;
 
-
+    @JsonBackReference
     @OneToOne(mappedBy = "client")
     private Sale sale;
 

@@ -1,6 +1,7 @@
 package com.example.sistema.models;
 
 import com.example.sistema.models.superClass.Vehicle;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
@@ -55,6 +56,7 @@ public class Car extends Vehicle {
     @NotNull(groups = CreateCar.class)
     private Boolean sensorsAndCameras;
 
+    @JsonBackReference
     @OneToOne(mappedBy = "carId")
     private Sale sale;
 
