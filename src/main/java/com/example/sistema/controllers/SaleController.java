@@ -42,7 +42,17 @@ public class SaleController {
     }
 
     @GetMapping("/seller/{id}")
-    public ResponseEntity<List<Sale>> findBySeller(@PathVariable Long id) {
+    public ResponseEntity<List<Sale>> findBySellerId(@PathVariable Long id) {
         return ResponseEntity.ok().body(saleService.findBySellerId(id));
+    }
+
+    @GetMapping("/client/{id}")
+    public ResponseEntity<List<Sale>> findByClientId(@PathVariable Long id) {
+        return ResponseEntity.ok().body(saleService.findByClientId(id));
+    }
+
+    @GetMapping("/car/{id}")
+    public ResponseEntity<List<Sale>> findByCarId(@PathVariable Long id) {
+        return ResponseEntity.ok().body(saleService.findByCarId(id));
     }
 }

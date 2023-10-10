@@ -44,4 +44,12 @@ public class SaleService {
     public List<Sale> findBySellerId(Long id) {
         return saleRepository.findBySellerId(id);
     }
+
+    public List<Sale> findByClientId(Long id) {
+        return saleRepository.findByClientId(id);
+    }
+
+    public List<Sale> findByCarId(Long id) {
+        return saleRepository.findByCarId(id);
+    }
 }
