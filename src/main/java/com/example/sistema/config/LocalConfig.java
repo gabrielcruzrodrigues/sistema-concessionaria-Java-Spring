@@ -76,19 +76,19 @@ public class LocalConfig {
 
     private List<Client> createSampleClient() throws ParseException{
         return List.of(
-                new Client(null, "Gabriel Rodrigues", FormatData.formatDate("12/05/2002"), "503.851.790-06", "Rua Almeida",
+                new Client(null, "Gabriel Rodrigues", FormatData.formatDate("12/05/2002"), "50385179006", "Rua Almeida",
                         "33900000000", "gabriel@gmail.com", "BR", true, 20.000, 7000.000, true),
-                new Client(null, "David Sampan", FormatData.formatDate("24/08/1995"), "213.850.860-92", "Rua Rio Niteroi",
+                new Client(null, "David Sampan", FormatData.formatDate("24/08/1995"), "21385086092", "Rua Rio Niteroi",
                         "33988888888", "David@gmail.com", "BR", true, 0.0, 5000.000, false)
         );
     }
 
     private List<Seller> createSampleSeller() throws ParseException {
         return List.of(
-                new Seller(null, "Gabriel Rodrigues", FormatData.formatDate("12/05/2002"), "503.851.790-06", "Rua Almeida",
+                new Seller(null, "Gabriel Rodrigues", FormatData.formatDate("12/05/2002"), "50385179006", "Rua Almeida",
                         "33900000000", "gabriel@gmail.com", "BR", true, "comercial", "vendas",
                         "9:00-18:00", 5000.0, false, 50, 5, 200.0, "Jequié"),
-                new Seller(null, "André Morais", FormatData.formatDate("26/01/2000"), "758.748.750-69", "Rua Girassol",
+                new Seller(null, "André Morais", FormatData.formatDate("26/01/2000"), "75874875069", "Rua Girassol",
                         "33988884444", "andre@gmail.com", "BR", true, "comercial", "vendas",
                         "9:00-18:00", 6000.0, true, 60, 7, 400000.0, "Jitaúna")
         );

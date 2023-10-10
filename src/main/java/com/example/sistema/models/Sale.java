@@ -29,18 +29,17 @@ public class Sale {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @JsonManagedReference
-//    @JsonIgnore
+//    @JsonManagedReference
     @ManyToOne
     @JoinColumn(name = "seller_id")
     private Seller seller;
 
-    @JsonManagedReference
+//    @JsonManagedReference
     @ManyToOne
     @JoinColumn(name = "client_id")
     private Client client;
 
-    @JsonManagedReference
+//    @JsonManagedReference
     @OneToOne
     @JoinColumn(name = "car_id")
     private Car carId;

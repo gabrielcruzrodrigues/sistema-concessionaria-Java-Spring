@@ -2,6 +2,7 @@ package com.example.sistema.services;
 
 import com.example.sistema.models.Sale;
 import com.example.sistema.repositories.SaleRepository;
+import com.example.sistema.services.exceptions.ObjectNotFoundException;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -30,13 +31,17 @@ public class SaleService {
         return saleSave;
     }
 
-    public Sale findById(Long id) {
-        Optional<Sale> sale = saleRepository.findById(id);
-        return sale.orElseThrow(() -> new RuntimeException("venda não encontrada"));
-    }
-
     @Transactional
     public List<Sale> findAll() {
         return saleRepository.findAll();
+    }
+
+    public Sale findById(Long id) {
+        Optional<Sale> sale = saleRepository.findById(id);
+        return sale.orElseThrow(() -> new ObjectNotFoundException("venda não encontrada"));
+    }
+
+    public List<Sale> findBySellerId(Long id) {
+        return saleRepository.findBySellerId(id);
     }
 }

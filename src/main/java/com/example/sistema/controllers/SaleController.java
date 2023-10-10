@@ -13,7 +13,7 @@ import java.net.URI;
 import java.util.List;
 
 @RestController
-@RequestMapping("/sale")
+@RequestMapping("sale")
 @Validated
 public class SaleController {
 
@@ -39,5 +39,10 @@ public class SaleController {
     @GetMapping("/{id}")
     public ResponseEntity<Sale> findById(@PathVariable Long id) {
         return ResponseEntity.ok().body(saleService.findById(id));
+    }
+
+    @GetMapping("/seller/{id}")
+    public ResponseEntity<List<Sale>> findBySeller(@PathVariable Long id) {
+        return ResponseEntity.ok().body(saleService.findBySellerId(id));
     }
 }
