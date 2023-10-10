@@ -25,9 +25,7 @@ public class SaleService {
         saleObj.setId(null);
         saleObj.setCreateAt(LocalDateTime.now());
         Sale saleSave = saleRepository.save(saleObj);
-
         carService.setNotActive(saleSave.getCarId().getId());
-
         return saleSave;
     }
 

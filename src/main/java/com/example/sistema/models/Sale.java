@@ -44,6 +44,8 @@ public class Sale {
     @JoinColumn(name = "car_id")
     private Car carId;
 
+    @Column(name = "paymentMethod", nullable = false)
+    private PaymentMethods paymentMethod;
 
     @Column(name = "createAt")
     private LocalDateTime createAt;
