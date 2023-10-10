@@ -29,8 +29,7 @@ public class EmployeeService {
     public Employee findById(Long id) {
         Optional<Employee> employee = employeeRepository.findById(id);
         return employee.orElseThrow(() -> new ObjectNotFoundException(
-            "Funcionário não encontrado! cpf: " + id + ", Tipo: " + Employee.class.getName()
-        ));
+            "Funcionário não encontrado! cpf: " + id));
     }
 
     public List<Employee> getAllEmployee() {
@@ -42,12 +41,13 @@ public class EmployeeService {
         employeeObj.setId(id);
         Employee employee = findById(employeeObj.getId());
 
+        //data not changed
         employeeObj.setId(employee.getId());
         employeeObj.setName(employee.getName());
-//        employeeObj.setHiringDate(employee.getHiringDate());
         employeeObj.setCpf(employee.getCpf());
         employeeObj.setEmail(employee.getEmail());
         employeeObj.setNationality(employee.getNationality());
+
         return employeeRepository.save(employeeObj);
     }
 

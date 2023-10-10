@@ -25,11 +25,6 @@ public class Client extends Person {
     public interface CreatePerson{}
     public interface UpdatePerson{}
 
-//    @Column(name = "lastPurchase", nullable = false)
-//    @NotNull(groups = CreatePerson.class)
-//    @NotBlank(groups = CreatePerson.class)
-//    private Date lastPurchase;
-
     @Column(name = "creditCompany",length = 20, nullable = false)
     @NotNull
     private Double creditCompany;
