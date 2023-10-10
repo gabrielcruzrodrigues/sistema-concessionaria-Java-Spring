@@ -14,7 +14,7 @@ import java.net.URI;
 import java.util.List;
 
 @RestController
-@RequestMapping("/client")
+@RequestMapping("/clients")
 @Validated
 public class ClientController {
 
