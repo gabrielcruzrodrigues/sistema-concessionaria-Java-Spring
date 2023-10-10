@@ -37,7 +37,7 @@ public class SellerService {
     @Transactional
     public Seller update(Seller sellerObj, Long id) {
         sellerObj.setId(id);
-        Seller seller = findById(sellerObj.getId());
+        Seller seller = this.findById(sellerObj.getId());
 
         sellerObj.setId(seller.getId());
         sellerObj.setName(seller.getName());
@@ -48,7 +48,7 @@ public class SellerService {
     }
 
     public void delete(Long id) {
-        findById(id);
+        this.findById(id);
         try {
             sellerRepository.deleteById(id);
         } catch(Exception ex) {
