@@ -2,6 +2,7 @@ package com.example.sistema.services.personServices;
 
 import com.example.sistema.models.personModels.Seller;
 import com.example.sistema.repositories.personRepositories.SellerRepository;
+import com.example.sistema.services.exceptions.DataBidingViolationException;
 import com.example.sistema.services.exceptions.ObjectNotFoundException;
 import com.example.sistema.util.FormatData;
 import org.junit.jupiter.api.BeforeEach;
@@ -42,6 +43,7 @@ class SellerServiceTest {
     public static final double VALUE_TOTAL_SALES_MONTH = 200.0;
     public static final String CITY_WORK = "Jequié";
     public static final String SELLER_NOT_FOUND = "vendedor não encontrado.";
+    public static final String VIOLATION_ERROR = "Não a possivel excluir pois há entidades relacionadas";
 
     private Seller seller;
     private Seller seller2;
@@ -199,6 +201,21 @@ class SellerServiceTest {
         sellerService.delete(ID);
 
         verify(sellerRepository, times(1)).deleteById(anyLong());
+    }
+
+    @Test
+    void mustReturnADataBidingViolationException_whenToCallDelete() {
+        when(sellerRepository.findById(anyLong())).thenReturn(sellerOptional);
+        when(sellerRepository.findById(anyLong())).thenThrow(new DataBidingViolationException(VIOLATION_ERROR));
+
+        try {
+            sellerService.delete(ID);
+        } catch (Exception ex) {
+            assertNotNull(ex);
+            assertNotNull(ex.getMessage());
+            assertEquals(DataBidingViolationException.class, ex.getClass());
+            assertEquals(VIOLATION_ERROR, ex.getMessage());
+        }
     }
 
     void startSeller() throws ParseException {

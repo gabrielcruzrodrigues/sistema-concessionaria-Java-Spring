@@ -38,7 +38,7 @@ public class CarService {
 
     public Car update(Car carObj, Long id) {
         carObj.setId(id);
-        Car car = findById(carObj.getId());
+        Car car = this.findById(carObj.getId());
 
         //data not changed
         carObj.setId(car.getId());
