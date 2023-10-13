@@ -42,13 +42,13 @@ public class ClientController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Object> findById(@PathVariable Long id) {
+    public ResponseEntity<Client> findById(@PathVariable Long id) {
         Client client = this.clientService.findById(id);
         return ResponseEntity.status(HttpStatus.OK).body(client);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Object> update (@Valid @RequestBody Client clientObj, @PathVariable Long id) {
+    public ResponseEntity<Client> update (@Valid @RequestBody Client clientObj, @PathVariable Long id) {
         Client client = this.clientService.update(clientObj, id);
         return ResponseEntity.status(HttpStatus.OK).body(client);
     }

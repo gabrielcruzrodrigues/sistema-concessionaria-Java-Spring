@@ -47,7 +47,7 @@ public class SellerController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Object> update(@Valid @RequestBody Seller sellerObj, @PathVariable Long id) {
+    public ResponseEntity<Seller> update(@Valid @RequestBody Seller sellerObj, @PathVariable Long id) {
         Seller seller = sellerService.update(sellerObj, id);
         return ResponseEntity.status(HttpStatus.OK).body(seller);
     }
