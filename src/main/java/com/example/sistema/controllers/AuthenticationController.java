@@ -1,6 +1,7 @@
 package com.example.sistema.controllers;
 
 import com.example.sistema.models.user.AuthenticationDTO;
+import com.example.sistema.models.user.LoginResponseDTO;
 import com.example.sistema.models.user.RegisterDTO;
 import com.example.sistema.models.user.User;
 import com.example.sistema.services.authentication.AuthenticationService;
@@ -25,8 +26,8 @@ public class AuthenticationController {
 
     @PostMapping("/login")
     public ResponseEntity login(@RequestBody @Valid AuthenticationDTO data) {
-        this.authenticationService.login(data);
-        return ResponseEntity.ok().build();
+        var auth = this.authenticationService.login(data);
+        return ResponseEntity.ok(new LoginResponseDTO(this.userService.getToken(auth)));
     }
 
     @PostMapping("/register")

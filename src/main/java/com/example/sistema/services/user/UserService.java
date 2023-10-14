@@ -1,11 +1,13 @@
 package com.example.sistema.services.user;
 
+import com.example.sistema.infra.security.TokenService;
 import com.example.sistema.models.user.RegisterDTO;
 import com.example.sistema.models.user.User;
 import com.example.sistema.repositories.UserRepository;
 import com.example.sistema.services.exceptions.UserAlreadyExistException;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -15,6 +17,9 @@ public class UserService {
 
     @Autowired
     private UserRepository userRepository;
+
+    @Autowired
+    private TokenService tokenService;
 
     @Transactional
     public User create(RegisterDTO user) {
@@ -27,5 +32,9 @@ public class UserService {
     public void checksIfUserAlreadyExists(String login) {
         UserDetails user = userRepository.findByLogin(login);
         if (user != null) throw new UserAlreadyExistException("Usuário ja consta no banco de dados! login: " + login);
+    }
+
+    public String getToken(Authentication authentication) {
+        return this.tokenService.generateToken((User) authentication.getPrincipal());
     }
 }
