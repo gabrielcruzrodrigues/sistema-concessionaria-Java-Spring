@@ -23,22 +23,28 @@ spring.profiles.active=local
 
 # EndPoints
 
+# Clientes (clients)
+
 (endpoint com problemas)
-#### GET /clients - status: 200
-Resgata todos os registros do banco de dados.
+* #### // GET /clients - status: 200
+// Resgata todos os registros do banco de dados.
 
 ====================================
 
-#### GET /clients/:id - status: 200
-Busca client por id.
+* #### GET /clients/:id - status: 200
+* Busca client por id.
 
 ====================================
 
-#### POST /clients - status: 201
-cria novo cliente.
+* #### GET /clients/:cpf - status: 200
+* Busca client por cpf.
+
+====================================
+
+* #### POST /clients - status: 201
+* cria novo cliente.
 ```
 {
-    "id": 5,
     "name": "Davi",
     "cpf": "00200009000",
     "address": "Rua b, n: 56",
@@ -54,8 +60,8 @@ cria novo cliente.
 
 ====================================
 
-#### PUT /clients/:id - status: 200
-Atualiza registro no banco de dados.
+* #### PUT /clients/:id - status: 200
+* Atualiza registro no banco de dados.
 ```
 {
     "address": "Rua b, n: 56",
@@ -73,8 +79,70 @@ Atualiza registro no banco de dados.
 
 ====================================
 
-#### DELETE /clients/:id - status: 204
-Deleta pessoas do banco de dados.
+* #### DELETE /clients/:id - status: 204
+* Deleta pessoas do banco de dados.
+
+# Funcionários (employee)
+
+(endpoint com problemas)
+* #### // GET /employees - status: 200
+// Resgata todos os registros do banco de dados.
+
+====================================
+
+* #### GET /employees/:id - status: 200
+* Busca funcionário por id.
+
+====================================
+
+* #### POST /employees - status: 201
+* cria novo funcionário.
+```
+{
+    "name": "Gabriel",
+    "cpf": "00200009000",
+    "address": "Rua b, n: 56",
+    "phoneNumber": "00926881111",
+    "email": "con2ate@gmail.com",
+    "nationality": "BR",
+    "isActive": true,
+    "creditCompany": 10.0,
+    "monthlySalary": 1236.0,
+    "approvedFinancing": false,
+    "area": "Engenheiro de Software",
+    "pcd": false,
+    "salary": 2000,
+    "sector": "Desenvolvimento Backend",
+    "workSchedule": "8:00 - 17:00"
+}
+```
+
+====================================
+
+* #### PUT /employees/:id - status: 200
+* Atualiza registro do funcionário no banco de dados.
+```
+    {
+        "id": 5,
+        "name": "Gabriel",
+        "cpf": "0020069000",
+        "address": "Rua b, n: 56",
+        "phoneNumber": "60926881111",
+        "email": "con2a6e@gmail.com",
+        "nationality": "BR",
+        "isActive": true,
+        "sector": "Desenvolvimento Backend",
+        "workSchedule": "8:00 - 17:00",
+        "salary": 2000.0,
+        "pcd": false,
+        "area": "Engenheiro Java"
+    }
+```
+
+====================================
+
+* #### DELETE /employees/:id - status: 204
+* Deleta funcionário do banco de dados.
 
 (documentação em desenvolvimento)
 
