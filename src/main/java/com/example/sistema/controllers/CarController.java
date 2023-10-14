@@ -14,7 +14,7 @@ import java.net.URI;
 import java.util.List;
 
 @RestController
-@RequestMapping("car")
+@RequestMapping("cars")
 @Validated
 public class CarController {
 
