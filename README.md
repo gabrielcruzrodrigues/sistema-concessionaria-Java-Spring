@@ -295,6 +295,46 @@ spring.profiles.active=local
 * #### DELETE /cars/:id - status: 204
 * Deleta carro do banco de dados.
 
+# Vendas (sales)
 
+* #### POST /sales - status: 201
+* cria nova venda.
+```
+{
+    "seller": {
+        "id": 1
+    },
+    "client": {
+        "id": 2
+    },
+    "carId": {
+        "id": 1
+    },
+    "paymentMethod": "PIX" (ou) "CARTAO" (OU) "BOLETO" (OU) "DINHEIRO"
+}
+```
+
+====================================
+
+* #### GET /sales - status: 200
+* Busca todas as vendas do banco de dados.
+
+====================================
+
+* #### GET /sales/seller/:id - status: 200
+* Busca todas as vendas relacionadas ao vendedor (seller) pelo id.
+
+====================================
+
+* #### GET /sales/client/:id - status: 200
+* Busca todas as vendas relacionadas ao cliente (client) pelo id.
+
+====================================
+
+* #### GET /sales/car/:id - status: 200
+* Busca todas as vendas relacionadas ao carro (client) pelo id.
+
+
+  
 (documentação em desenvolvimento)
 
