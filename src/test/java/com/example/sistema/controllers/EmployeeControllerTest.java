@@ -154,17 +154,16 @@ class EmployeeControllerTest {
         assertEquals(PCD, response.getBody().getPcd());
     }
 
-//    @Test
-//    void mustReturnAResponseEntityWithStatusCodeOk_whenToCallDelete() {
-//    doNothing().when(employeeController).delete(anyLong());
-//    ResponseEntity<String> response = employeeController.delete(ID);
-//
-//        assertNotNull(response);
-//        assertNotNull(response.getHeaders());
-//        assertNotNull(response.getStatusCode());
-//        assertNotNull(response.getBody());
-//        assertEquals(HttpStatus.OK, response.getStatusCode());
-//    }
+    @Test
+    void mustReturnAResponseEntityWithStatusCodeOk_whenToCallDelete() {
+    doNothing().when(employeeService).delete(anyLong());
+    ResponseEntity<String> response = employeeController.delete(ID);
+
+        assertNotNull(response);
+        assertNotNull(response.getHeaders());
+        assertNotNull(response.getStatusCode());
+        assertEquals(HttpStatus.NO_CONTENT, response.getStatusCode());
+    }
 
     void startEmployee() throws ParseException {
         employee = new Employee(null, NAME, FormatData.formatDate("12/05/2002"), CPF, ADDRESS,

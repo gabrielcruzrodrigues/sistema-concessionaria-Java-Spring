@@ -176,17 +176,16 @@ class SellerControllerTest {
         assertEquals(CITY_WORK, response.getBody().getCityWork());
     }
 
-//    @Test
-//    void mustReturnAResponseEntityWithStatusCodeOk_whenToCallDelete() {
-//    doNothing().when(sellerController).delete(anyLong());
-//    ResponseEntity<String> response = sellerController.delete(ID);
-//
-//        assertNotNull(response);
-//        assertNotNull(response.getHeaders());
-//        assertNotNull(response.getStatusCode());
-//        assertNotNull(response.getBody());
-//        assertEquals(HttpStatus.OK, response.getStatusCode());
-//    }
+    @Test
+    void mustReturnAResponseEntityWithStatusCodeOk_whenToCallDelete() {
+    doNothing().when(sellerService).delete(anyLong());
+    ResponseEntity<String> response = sellerController.delete(ID);
+
+        assertNotNull(response);
+        assertNotNull(response.getHeaders());
+        assertNotNull(response.getStatusCode());
+        assertEquals(HttpStatus.NO_CONTENT, response.getStatusCode());
+    }
 
     void startSeller() throws ParseException {
         seller = new Seller(ID, NAME, FormatData.formatDate("12/05/2002"), CPF, ADDRESS, NUMBER, EMAIL, NATIONALITY, IS_ACTIVE,

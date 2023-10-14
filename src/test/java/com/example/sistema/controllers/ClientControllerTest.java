@@ -145,17 +145,16 @@ class ClientControllerTest {
         assertEquals(MONTHLY_SALARY, response.getBody().getMonthlySalary());
     }
 
-//    @Test
-//    void mustReturnAResponseEntityWithStatusCodeOk_whenToCallDelete() {
-//    doNothing().when(clientController).delete(anyLong());
-//    ResponseEntity<Object> response = clientController.delete(ID);
-//
-//        assertNotNull(response);
-//        assertNotNull(response.getHeaders());
-//        assertNotNull(response.getStatusCode());
-//        assertNotNull(response.getBody());
-//        assertEquals(HttpStatus.OK, response.getStatusCode());
-//    }
+    @Test
+    void mustReturnAResponseEntityWithStatusCodeOk_whenToCallDelete() {
+    doNothing().when(clientService).delete(anyLong());
+    ResponseEntity<Object> response = clientController.delete(ID);
+
+        assertNotNull(response);
+        assertNotNull(response.getHeaders());
+        assertNotNull(response.getStatusCode());
+        assertEquals(HttpStatus.NO_CONTENT, response.getStatusCode());
+    }
 
     void startClient() throws ParseException {
         client = new Client(null, NAME, FormatData.formatDate("12/05/2002"), CPF, ADDRESS,

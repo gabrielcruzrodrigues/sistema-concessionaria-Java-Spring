@@ -50,4 +50,8 @@ public class SaleService {
     public List<Sale> findByCarId(Long id) {
         return saleRepository.findByCarId(id);
     }
+
+//    public List<Sale> findByCpf(String cpf) {
+//        return saleRepository.findByCpf(cpf);
+//    }
 }

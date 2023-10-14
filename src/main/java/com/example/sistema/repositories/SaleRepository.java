@@ -19,4 +19,7 @@ public interface SaleRepository extends JpaRepository<Sale, Long> {
 
     @Query(value = "SELECT * FROM sale WHERE car_id = :id", nativeQuery = true)
     List<Sale> findByCarId(@Param("id") Long id);
+
+//    @Query(value = "SELECT * FROM sale WHERE client_id = (SELECT id FROM client WHERE cpf = :cpf)", nativeQuery = true)
+//    List<Sale> findByCpf(@Param("cpf") String cpf);
 }

@@ -55,4 +55,9 @@ public class SaleController {
     public ResponseEntity<List<Sale>> findByCarId(@PathVariable Long id) {
         return ResponseEntity.ok().body(saleService.findByCarId(id));
     }
+
+//    @GetMapping("/search/{cpf}")
+//    public ResponseEntity<List<Sale>> findByCpf(@PathVariable String cpf) {
+//        return ResponseEntity.ok().body(saleService.findByCpf(cpf));
+//    }
 }

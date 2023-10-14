@@ -10,8 +10,12 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.MvcResult;
+import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
 import java.util.List;
 import java.util.Optional;
@@ -22,6 +26,7 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyLong;
 import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.when;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 
 class CarControllerTest {
     public static final String NAME = "Fusca";
@@ -58,15 +63,19 @@ class CarControllerTest {
     @Mock
     private CarService carService;
 
+    @Autowired
+//    private MockMvc mockMvc;
+
     @BeforeEach
     void setUp() {
         MockitoAnnotations.openMocks(this);
+//        mockMvc = MockMvcBuilders.standaloneSetup(carController).build();
         startCar();
     }
 
 //    @Test
-//    void mustReturnResponseEntityWithACarInstanceAndStatusCodeCreated_whenToCallCreate() {
-//        when(carService.create(any())).thenReturn(car);
+//    void mustReturnResponseEntityWithACarInstanceAndStatusCodeCreated_whenToCallCreate() throws Exception {
+//        when(carService.create(any(Car.class))).thenReturn(car);
 //        ResponseEntity<Car> response = carController.create(car);
 //
 //        assertNotNull(response);
@@ -201,17 +210,16 @@ class CarControllerTest {
         assertEquals(SENSORS_AND_CAMERAS, response.getBody().getSensorsAndCameras());
     }
 
-//    @Test
-//    void mustReturnAResponseEntityWithStatusCodeOk_whenToCallDelete() {
-//        doNothing().when(carController).delete(anyLong());
-//        ResponseEntity<Object> response = carController.delete(ID);
-//
-//        assertNotNull(response);
-//        assertNotNull(response.getHeaders());
-//        assertNotNull(response.getStatusCode());
-//        assertNotNull(response.getBody());
-//        assertEquals(HttpStatus.OK, response.getStatusCode());
-//    }
+    @Test
+    void mustReturnAResponseEntityWithStatusCodeOk_whenToCallDelete() {
+        doNothing().when(carService).delete(anyLong());
+        ResponseEntity<Object> response = carController.delete(ID);
+
+        assertNotNull(response);
+        assertNotNull(response.getHeaders());
+        assertNotNull(response.getStatusCode());
+        assertEquals(HttpStatus.NO_CONTENT, response.getStatusCode());
+    }
 
     void startCar() {
         car = new Car(NAME, MANUFACTURE_YEAR, PLATE, COLOR, CHASSI, MODEL, STAGE, MILEAGE, WEIGHT, FUEL_CONSUMPTION_PER_LITER, MOTOR, POWER, TORQUE,
