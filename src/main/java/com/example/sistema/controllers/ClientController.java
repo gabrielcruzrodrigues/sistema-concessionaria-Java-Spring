@@ -47,6 +47,12 @@ public class ClientController {
         return ResponseEntity.status(HttpStatus.OK).body(client);
     }
 
+    @GetMapping("/search/{cpf}")
+    public ResponseEntity<Client> findByCpf(@PathVariable String cpf) {
+        Client client = this.clientService.findByClientCpf(cpf);
+        return ResponseEntity.status(HttpStatus.OK).body(client);
+    }
+
     @PutMapping("/{id}")
     public ResponseEntity<Client> update (@Valid @RequestBody Client clientObj, @PathVariable Long id) {
         Client client = this.clientService.update(clientObj, id);
@@ -56,6 +62,6 @@ public class ClientController {
     @DeleteMapping("/{id}")
     public ResponseEntity<Object> delete(@PathVariable Long id) {
         this.clientService.delete(id);
-        return ResponseEntity.status(HttpStatus.NO_CONTENT).body("Cliente deletado!");
+        return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }
 }

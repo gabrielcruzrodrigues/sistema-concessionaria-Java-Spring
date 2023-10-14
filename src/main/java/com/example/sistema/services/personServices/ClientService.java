@@ -29,13 +29,14 @@ public class ClientService {
         return clientRepository.findAll();
     }
 
-//    public Client findByClientCpf(String cpf) {
-//        Optional<Client> client = Optional.ofNullable(clientRepository.findByClientCpf(cpf));
-//        log.info(client.get().getCpf());
-//        return client.orElseThrow(() -> new ObjectNotFoundException(
-//                "Cliente não encontrado! cpf: " + cpf + ", Tipo: " + Client.class.getName()
-//        ));
-//    }
+    public Client findByClientCpf(String cpf) {
+        Client client = clientRepository.findByClientCpf(cpf);
+        if (client != null) {
+            return client;
+        } else {
+            throw new ObjectNotFoundException("Cliente não encontrado! cpf: " + cpf + ", Tipo: " + Client.class.getName());
+        }
+    }
 
     public Client findById(Long id) {
         Optional<Client> client = clientRepository.findById(id);

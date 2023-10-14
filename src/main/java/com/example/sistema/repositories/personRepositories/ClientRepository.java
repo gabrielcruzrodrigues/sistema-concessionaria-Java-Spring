@@ -9,6 +9,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface ClientRepository extends JpaRepository<Client, Long> {
 
-    @Query(value = "SELECT * FROM tb_clients WHERE cpf = :cpf", nativeQuery = true)
+    @Query(value = "SELECT * FROM client WHERE cpf = :cpf", nativeQuery = true)
     Client findByClientCpf(@Param("cpf") String cpf);
 }
