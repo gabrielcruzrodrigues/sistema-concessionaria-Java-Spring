@@ -123,7 +123,6 @@ spring.profiles.active=local
 * Atualiza registro do funcionário no banco de dados.
 ```
     {
-        "id": 5,
         "name": "Gabriel",
         "cpf": "0020069000",
         "address": "Rua b, n: 56",
@@ -143,6 +142,80 @@ spring.profiles.active=local
 
 * #### DELETE /employees/:id - status: 204
 * Deleta funcionário do banco de dados.
+
+* # Vendores (Seller)
+
+(endpoint com problemas)
+* #### // GET /sellers - status: 200
+// Resgata todos os registros do banco de dados.
+
+====================================
+
+* #### GET /sellers/:id - status: 200
+* Busca vendedor por id.
+
+====================================
+
+* #### POST /sellers - status: 201
+* cria novo vendedor.
+```
+{
+    "name": "Gabriel",
+    "cpf": "00207009000",
+    "address": "Rua b, n: 56",
+    "phoneNumber": "00927781111",
+    "email": "con277e@gmail.com",
+    "nationality": "BR",
+    "isActive": true,
+    "creditCompany": 10.0,
+    "monthlySalary": 1236.0,
+    "approvedFinancing": false,
+    "area": "Engenheiro de Software",
+    "pcd": false,
+    "salary": 2000,
+    "sector": "Desenvolvimento Backend",
+    "workSchedule": "8:00 - 17:00",
+    "quantitySales": 70,
+    "quantitySalesMonth": 5,
+    "valueTotalSalesMonth": 55000,
+    "cityWork": "Jequie"
+}
+```
+
+====================================
+
+* #### PUT /sellers/:id - status: 200
+* Atualiza registro do vendedor no banco de dados.
+```
+{
+    "name": "Gabriel",
+    "dateOfBirth":"2002-02-13",
+    "cpf": "75722172065",
+    "address": "Rua b, n: 56",
+    "phoneNumber": "00927781111",
+    "email": "con277e@gmail.com",
+    "nationality": "BR",
+    "isActive": true,
+    "creditCompany": 10.0,
+    "monthlySalary": 1236.0,
+    "approvedFinancing": false,
+    "area": "Engenheiro de Software",
+    "pcd": false,
+    "salary": 2000,
+    "sector": "Desenvolvimento Backend",
+    "workSchedule": "8:00 - 17:00",
+    "quantitySales": 70,
+    "quantitySalesMonth": 5,
+    "valueTotalSalesMonth": 55000,
+    "cityWork": "Jitauna"
+}   
+```
+
+====================================
+
+* #### DELETE /sellers/:id - status: 204
+* Deleta vendedor do banco de dados.
+
 
 (documentação em desenvolvimento)
 
