@@ -80,7 +80,7 @@ spring.profiles.active=local
 ====================================
 
 * #### DELETE /clients/:id - status: 204
-* Deleta pessoas do banco de dados.
+* Deleta cliente do banco de dados.
 
 # Funcionários (employee)
 
@@ -143,7 +143,7 @@ spring.profiles.active=local
 * #### DELETE /employees/:id - status: 204
 * Deleta funcionário do banco de dados.
 
-* # Vendores (Seller)
+# Vendedores (Seller)
 
 (endpoint com problemas)
 * #### // GET /sellers - status: 200
@@ -215,6 +215,85 @@ spring.profiles.active=local
 
 * #### DELETE /sellers/:id - status: 204
 * Deleta vendedor do banco de dados.
+
+# Carros (cars)
+
+* #### // GET /cars - status: 200
+// Resgata todos os registros do banco de dados.
+
+====================================
+
+* #### GET /cars/:id - status: 200
+* Busca carro por id.
+
+====================================
+
+* #### POST /cars - status: 201
+* cria novo carro.
+```
+{
+    "name": "Corsa",
+    "chassi": "12345671901234567",
+    "color": "Black",
+    "fuelConsumptionPerLiter": 6,
+    "isAvailable": true,
+    "isActive": true,
+    "mileage": 100.56,
+    "model": "25365asdf",
+    "motor": "gasolina",
+    "plate": "GHP1234",
+    "power": 230,
+    "stage": "NOVO",
+    "torque": 60,
+    "weight": 1.00000,
+    "automaticTransmission": true,
+    "cameraMonitoring": true,
+    "electricWindows": true,
+    "gps": true,
+    "hydraulicSteering": true,
+    "sensorsAndCameras": true,
+    "sunroof": true,
+    "traction": true,
+    "manufactureYear": "2002"
+}
+```
+
+====================================
+
+* #### PUT /cars/:id - status: 200
+* Atualiza registro do carro no banco de dados.
+```
+{
+    "name": "Celta",
+    "manufactureYear":"2000",
+    "chassi": "12245671901234567",
+    "color": "Black",
+    "fuelConsumptionPerLiter": 6,
+    "isActive": true,
+    "isAvailable": true,
+    "mileage": 100.56,
+    "model": "25365asdf",
+    "motor": "gasolina",
+    "plate": "GHP2234",
+    "power": 230,
+    "stage": "NOVO",
+    "torque": 60,
+    "weight": 1.00000,
+    "automaticTransmission": true,
+    "cameraMonitoring": true,
+    "electricWindows": true,
+    "gps": true,
+    "hydraulicSteering": true,
+    "sensorsAndCameras": true,
+    "sunroof": true,
+    "traction": true
+}
+```
+
+====================================
+
+* #### DELETE /cars/:id - status: 204
+* Deleta carro do banco de dados.
 
 
 (documentação em desenvolvimento)
