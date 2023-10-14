@@ -2,6 +2,7 @@ package com.example.sistema.exceptions;
 
 import com.example.sistema.services.exceptions.DataBidingViolationException;
 import com.example.sistema.services.exceptions.ObjectNotFoundException;
+import com.example.sistema.services.exceptions.UserAlreadyExistException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.ConstraintViolationException;
 import org.apache.coyote.Response;
@@ -107,6 +108,16 @@ public class MainExceptionHandler {
                 LocalDateTime.now(),
                 HttpStatus.BAD_REQUEST.value(),
                 ex.getLocalizedMessage(),
+                request.getRequestURI());
+        return new ResponseEntity<>(error, HttpStatus.BAD_REQUEST);
+    }
+
+    @ExceptionHandler(UserAlreadyExistException.class)
+    public ResponseEntity<StandardError> userAlreadyExistException(UserAlreadyExistException ex, HttpServletRequest request) {
+        StandardError error = new StandardError(
+                LocalDateTime.now(),
+                HttpStatus.BAD_REQUEST.value(),
+                ex.getCause().toString(),
                 request.getRequestURI());
         return new ResponseEntity<>(error, HttpStatus.BAD_REQUEST);
     }

@@ -1,4 +1,4 @@
-package com.example.sistema.models;
+package com.example.sistema.models.enums;
 
 public enum PaymentMethods {
     CARTAO,

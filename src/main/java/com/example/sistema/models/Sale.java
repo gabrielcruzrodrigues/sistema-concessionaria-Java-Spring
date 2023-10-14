@@ -1,21 +1,15 @@
 package com.example.sistema.models;
 
+import com.example.sistema.models.enums.PaymentMethods;
 import com.example.sistema.models.personModels.Client;
 import com.example.sistema.models.personModels.Seller;
-import com.example.sistema.models.Car;
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.Date;
 
 @Entity
 @Table(name = "SALE")

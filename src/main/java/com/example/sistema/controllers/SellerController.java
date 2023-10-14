@@ -57,5 +57,4 @@ public class SellerController {
         sellerService.delete(id);
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }
-
 }
