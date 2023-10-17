@@ -28,7 +28,7 @@ spring.profiles.active=local
 <br>
 
 # Authenticação
-O projeto contem atualmente 3 roles de authenticação: 
+O projeto contem atualmente 3 níveis de permissão: 
 - ADMIN
 - SELLER
 - USER
