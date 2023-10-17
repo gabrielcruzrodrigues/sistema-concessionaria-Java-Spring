@@ -70,14 +70,15 @@ GET /clients/{id} <br>
 GET /clients/search/{cpf} <br>
 POST /clients <br>
 PUT /clients/{id} <br>
-
 GET /cars <br>
 GET /cars/{id} <br>
-
 POST /sales <br>
 GET /sales/client/{id} <br>
 GET /sales/car/{id} <br>
 GET /sales <br>
+
+- `USER`<br>
+atualmente nenhuma permissão.
 
 <br>
 
