@@ -3,9 +3,13 @@ package com.example.sistema.config;
 import com.example.sistema.models.Car;
 import com.example.sistema.models.personModels.Client;
 import com.example.sistema.models.personModels.Seller;
+import com.example.sistema.models.user.RegisterDTO;
+import com.example.sistema.models.user.User;
 import com.example.sistema.repositories.CarRepository;
+import com.example.sistema.repositories.UserRepository;
 import com.example.sistema.repositories.personRepositories.ClientRepository;
 import com.example.sistema.repositories.personRepositories.SellerRepository;
+import com.example.sistema.services.user.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -15,6 +19,8 @@ import com.example.sistema.util.FormatData;
 
 import java.text.ParseException;
 import java.util.List;
+
+import static com.example.sistema.models.enums.UserRole.ADMIN;
 
 @Slf4j
 @Configuration
@@ -29,6 +35,9 @@ public class LocalConfig {
 
     @Autowired
     private SellerRepository sellerRepository;
+
+    @Autowired
+    private UserService userService;
 
     @Bean
     public void initializeDatabaseWithSampleDataCar() throws ParseException {
@@ -46,6 +55,11 @@ public class LocalConfig {
     public void initializeDatabaseWithSampleDataSeller() throws ParseException {
         List<Seller> sampleSeller = createSampleSeller();
         sellerRepository.saveAll(sampleSeller);
+    }
+
+    @Bean
+    public void initializeDatabaseWithSampleDataUser() throws ParseException {
+        userService.create(new RegisterDTO("user", "123456789", ADMIN));
     }
 
 
