@@ -1,4 +1,4 @@
-# sistemaAutomotivo-java-spring-restFull
+# sistema-concessionaria-java-spring-restFull
 Sistema automotivo usando java, spring, e o recurso restFull em desenvolvimento
 
 O projeto é basicamente um sistema automotivo para gerenciamento de vendas, funcionarios, veículos, estoque e etc. (ainda em desenvolvimento)
