@@ -3,7 +3,10 @@ Sistema automotivo usando java, spring, e o recurso restFull em desenvolvimento
 
 O projeto é basicamente um sistema automotivo para gerenciamento de vendas, funcionarios, veículos, estoque e etc. (ainda em desenvolvimento)
 
-<hr>
+<br>
+
+
+<br>
 
 # Como rodar o projeto:
 
@@ -20,8 +23,67 @@ O projeto já vem com carga inicial de dados, então vc já vai ter alguns regis
 ```
 spring.profiles.active=local
 ```
+9. Olhe como funciona a autenticação, para conseguir acessar os endpoints.
+
+<br>
+
+# Authenticação
+O projeto contem atualmente 3 roles de authenticação: 
+- ADMIN
+- SELLER
+- USER
+
+Por padrão, a carga inicial de dados vai gerar um usuario com a role `ADMIN` no banco de dados para que vc possa registrar novos usuários e fazer as modificações que quiser.
+
+O sistema foi construido usando o JWT para gerar tokens de segurança que são gerados após o usuário logar com sucesso. eles devem ser passados no cabeçalho da requisição para que as rotas sejam liberadas!
+```
+"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzeXN..." 
+```
+login:
+* #### POST /login - status: 200
+*  apos logado, vc recebera um token para acessar as outras rotas.<br>
+OBS: esse é o login padrão para o usuário que é criado na carga inicial de dados.
+```
+{
+    "login": "user",
+    "password": "123456789"
+}
+```
+register:
+* #### POST /register - status: 200
+* endPoint para registrar um novo usuário no banco de dados, disponível apenas para ADMINs
+* OBS: para criar um novo usuário, é necessário passar o token de authenticação.
+```
+{
+    "login": "bb",
+    "password": "123456789",
+    "role": "USER"
+}
+```
+### Lista de permissões para cada role: 
+- `ADMIN`<br>
+acesso total ao sistema.
+
+- `SELLER`<br>
+GET /clients <br>
+GET /clients/{id} <br>
+GET /clients/search/{cpf} <br>
+POST /clients <br>
+PUT /clients/{id} <br>
+
+GET /cars <br>
+GET /cars/{id} <br>
+
+POST /sales <br>
+GET /sales/client/{id} <br>
+GET /sales/car/{id} <br>
+GET /sales <br>
+
+<br>
 
 # EndPoints
+
+<br>
 
 # Clientes (clients)
 
