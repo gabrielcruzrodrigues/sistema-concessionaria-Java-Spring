@@ -1,9 +1,9 @@
 package com.example.sistema.models.enums;
 
 public enum UserRole {
-    ADMIN("admin"),
-    USER("user"),
-    SELLER("seller");
+    ADMIN("ADMIN"),
+    USER("USER"),
+    SELLER("SELLER");
 
     private String role;
 
