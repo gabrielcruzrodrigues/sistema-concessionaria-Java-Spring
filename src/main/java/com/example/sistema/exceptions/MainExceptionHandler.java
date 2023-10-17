@@ -117,7 +117,7 @@ public class MainExceptionHandler {
         StandardError error = new StandardError(
                 LocalDateTime.now(),
                 HttpStatus.BAD_REQUEST.value(),
-                ex.getCause().toString(),
+                ex.getMessage(),
                 request.getRequestURI());
         return new ResponseEntity<>(error, HttpStatus.BAD_REQUEST);
     }

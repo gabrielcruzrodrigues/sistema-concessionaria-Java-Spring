@@ -27,13 +27,32 @@ public class SecurityConfigurations {
                 .csrf(csrf -> csrf.disable())
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(authorize -> authorize
+
+
+                        //exceptions SELLER
+                        .requestMatchers(HttpMethod.GET, "/clients").hasRole("SELLER")
+                        .requestMatchers(HttpMethod.GET, "/clients/{id}").hasRole("SELLER")
+                        .requestMatchers(HttpMethod.GET, "/clients/search/{cpf}").hasRole("SELLER")
+                        .requestMatchers(HttpMethod.POST, "/clients").hasRole("SELLER")
+                        .requestMatchers(HttpMethod.PUT, "/clients/{id}").hasRole("SELLER")
+
+                        .requestMatchers(HttpMethod.GET, "/cars").hasRole("SELLER")
+                        .requestMatchers(HttpMethod.GET, "/cars/{id}").hasRole("SELLER")
+
+                        .requestMatchers(HttpMethod.POST, "/sales").hasRole("SELLER")
+                        .requestMatchers(HttpMethod.GET, "/sales/client/{id}").hasRole("SELLER")
+                        .requestMatchers(HttpMethod.GET, "/sales/car/{id}").hasRole("SELLER")
+                        .requestMatchers(HttpMethod.GET, "/sales").hasRole("SELLER")
+
+                        //exceptions ADMIN
                         .requestMatchers(HttpMethod.POST, "/auth/login").permitAll()
                         .requestMatchers(HttpMethod.POST, "/auth/register").permitAll()
-                        .requestMatchers(HttpMethod.POST, "/").hasRole("ADMIN")
-                        .requestMatchers(HttpMethod.PUT, "/").hasRole("ADMIN")
-                        .requestMatchers(HttpMethod.DELETE, "/").hasRole("ADMIN")
-                        .requestMatchers(HttpMethod.GET, "/").hasRole("SELLER")
-                        .anyRequest().authenticated()
+                        .requestMatchers(HttpMethod.POST).hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.PUT).hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.DELETE).hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.GET).hasRole("ADMIN")
+
+//                        .anyRequest().authenticated()
                 )
                 .addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class)
                 .build();
